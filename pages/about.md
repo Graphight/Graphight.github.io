@@ -2,10 +2,9 @@
 layout: default
 ---
 
-[Home](./pages/index.md)  - 
-[About](./pages/about.md)  - 
-[Resume - Human Readable](./resources/Resume-DS.pdf)  - 
-[Resume - Plain Text](./resources/Resume-DS-PlainText.pdf)  - 
+[Home](../index.md) - 
+[About](../pages/about.md) - 
+[Resumes](../pages/resumes.md) - 
 [Github](https://github.com/Graphight)
 
 # About
