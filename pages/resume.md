@@ -2,7 +2,7 @@
 layout: default
 ---
 
-### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md) - [Github](https://github.com/Graphight)
+{% ./pages/navigator.md %}
 
 # Resume
 
