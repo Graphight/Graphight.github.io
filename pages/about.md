@@ -2,10 +2,8 @@
 layout: default
 ---
 
-[Home](../index.md) - 
-[About](../pages/about.md) - 
-[Resumes](../pages/resumes.md) - 
-[Github](https://github.com/Graphight)
+### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md) - [Github](https://github.com/Graphight)
+
 
 # About
 
