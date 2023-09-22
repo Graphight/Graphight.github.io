@@ -2,6 +2,14 @@
 layout: default
 ---
 
+[Home](./pages/index.md)  - 
+[About](./pages/about.md)  - 
+[Resume - Human Readable](./resources/Resume-DS.pdf)  - 
+[Resume - Plain Text](./resources/Resume-DS-PlainText.pdf)  - 
+[Github](https://github.com/Graphight)
+
+# About
+
 I am a Data Scientist currently working for Ströer Labs NZ, the development house for Ströer GmbH, a major online advertising platform in the German market. 
 I am at my happiest when learning new things and passing on knowledge to others. Naturally, mentoring has been something that I have enjoyed picking up over the past few years taking on interns each summer and volunteering in the local community.
 
