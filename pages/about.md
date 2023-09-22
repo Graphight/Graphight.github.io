@@ -16,3 +16,7 @@ Before Ströer I worked for Foodstuffs South Island Ltd at their Christchurch ba
 I was able to help improve operational efficiency enough for the warehouse to get international recognition, kickstarting my interest software and data driven processes.
 
 In my limited spare time I enjoy escape rooms, hiking, playing and attempting to create video games, travelling, and consuming sci-fi media.   
+
+[<img src="../resources/icons/GitHub.png" height="32" width="32"/>](https://github.com/Graphight)
+[<img src="../resources/icons/LinkedIn.png" height="32" width="32"/>](https://www.linkedin.com/in/tom-marsh-3aa764154/)
+[<img src="../resources/icons/Itch.png" height="32" width="32"/>](https://graphight.itch.io/) 
