@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% ./pages/navigator.md %}
+### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md)
 
 # Resume
 
