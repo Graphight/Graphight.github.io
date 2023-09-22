@@ -8,7 +8,7 @@ layout: default
 
 I am at my happiest when learning new things and deep diving into random topics with passionate individuals.
 I love problem solving and the challenge of breaking down complex topics into digestable chunks, naturaly, mentoring has been something that I have enjoyed picking up over the past few years, taking on interns for Ströer each summer and mentoring early career individuals outside of work.
-In my limited spare time I enjoy finding and completing all the escape rooms we can with my wife, hiking, playing and attempting to create video games, travelling, and consuming.
+In my limited spare time I enjoy finding and completing all the escape rooms we can with my wife, hiking, playing and attempting to create video games, travelling, and consuming sci-fi media.
 
 ## Career
 
