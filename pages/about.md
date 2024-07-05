@@ -30,6 +30,8 @@ I completed my Bachelor's of Science at the University of Canterbury back in 201
 The small amount of research I did in my undergraduate studies was in Solid State Physics, creating thin films of Yttrium Silicate via pulsed laser deposition as proposed candidates for quantum computing.
 While the technique was rough, we were able to show that it was possible to produce this particular form of quantum semiconductor (rare-Earth doped YSO) in situ.
 
+&nbsp;
+
 [<img src="../resources/icons/GitHub.png" height="32" width="32"/>](https://github.com/Graphight)
 [<img src="../resources/icons/LinkedIn.png" height="32" width="32"/>](https://www.linkedin.com/in/tom-marsh-3aa764154/)
 
