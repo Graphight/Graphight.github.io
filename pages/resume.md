@@ -2,7 +2,7 @@
 layout: default
 ---
 
-### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md)
+### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md) - [Publications](./pages/publications.md)
 
 # Resume
 
