@@ -11,6 +11,8 @@ layout: default
 
 [Data Science - Plain Text](../resources/Resume-DS-PlainText.pdf)
 
+&nbsp;
+
 [<img src="../resources/icons/GitHub.png" height="32" width="32"/>](https://github.com/Graphight)
 [<img src="../resources/icons/LinkedIn.png" height="32" width="32"/>](https://www.linkedin.com/in/tom-marsh-3aa764154/)
 
