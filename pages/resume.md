@@ -7,9 +7,9 @@ layout: default
 # Resume
 
 
-[Data Science - Human Readable](../resources/Resume-DS.pdf)
+[Human Readable](../resources/Resume.pdf)
 
-[Data Science - Plain Text](../resources/Resume-DS-PlainText.pdf)
+[Plain Text (ATS Friendly)](../resources/Resume_PlainText.pdf)
 
 &nbsp;
 
