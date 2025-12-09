@@ -22,11 +22,13 @@ I was able to help improve operational efficiency enough for the warehouse to ge
 
 ## Academia
 
-I am also currently pursuing a Master's of Science at the University of Canterbury, majoring in Physics, working with the Atmospheric Science department, under the guidance of Dave Frame and Suzanne Rosier.
-My particular research niche at the moment is extreme weather events over New Zealand, particularly precipitation, and how these differ in simulated worlds with and without anthropogenic climate change.
-The datasets and required skills are quite different to my usual wheelhouse so I am enjoying the challenge of learning on the fly.
+From July 2022 to July 2024 (concurrently with Strǒer Labs NZ), I completed a Master's of Science at the University of Canterbury, majoring in Physics. 
+This was with the Atmospheric Science department, under the guidance of Dave Frame and Suzanne Rosier.
+My particular research niche was extreme weather events over New Zealand, particularly precipitation, and how these differ in simulated worlds with and without anthropogenic climate change.
+I enjoyed the challenge of adapting my skills learnt from AdTech to thousands of years of simulated geospatial data.
+During this time I was given the opportunity to attend and speak at a national meteorology conference. 
 
-I completed my Bachelor's of Science at the University of Canterbury back in 2017, majoring in both Physics and Computer Science.
+From February 2015 to November 2017, I completed a Bachelor's of Science at the University of Canterbury, majoring in both Physics and Computer Science.
 The small amount of research I did in my undergraduate studies was in Solid State Physics, creating thin films of Yttrium Silicate via pulsed laser deposition as proposed candidates for quantum computing.
 While the technique was rough, we were able to show that it was possible to produce this particular form of quantum semiconductor (rare-Earth doped YSO) in situ.
 
