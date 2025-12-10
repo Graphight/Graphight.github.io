@@ -1,8 +1,6 @@
 ---
-layout: default
+layout: page
 ---
-
-### [Home](../index.md) - [About](../pages/about.md) - [Resume](../pages/resume.md) - [Articles](../pages/articles) - [Publications](../pages/publications.md)
 
 # About
 
