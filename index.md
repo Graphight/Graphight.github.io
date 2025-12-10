@@ -8,10 +8,11 @@ layout: default
 
 Kia ora, welcome.
 
-I am a Machine Learning Engineer with a physics background who has years of experience building production systems at a TB/PB scale. 
-I want to apply my skills to space, specifically in the sub-fields of propulsion, manufacturing, mining, and in-situ resource utilization.
+I am a Machine Learning Engineer with a physics background who has nearly a decade of experience building production systems at a TB/PB scale. 
 
 Currently based in Boston, Massachusetts, I am originally from Christchurch, New Zealand.
+Now that I am in New England, I aim to apply my skills to aerospace.
+My specific fields of interest are; propulsion, space-manufacturing, space-mining, and in-situ resource utilization.
 
 &nbsp;
 
