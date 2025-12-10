@@ -6,10 +6,12 @@ layout: default
 
 # Home
 
-Kia ora, welcome to my small personal webpage.
+Kia ora, welcome.
 
-This page is very much a work in progress. I intend for it to display various projects and be a one-stop shop for career things.
+I am a Machine Learning Engineer with a physics background who has years of experience building production systems at a TB/PB scale. 
+I want to apply my skills to space, specifically in the sub-fields of propulsion, manufacturing, mining, and in-situ resource utilization.
 
+Currently based in Boston, Massachusetts, I am originally from Christchurch, New Zealand.
 
 &nbsp;
 
