@@ -1,3 +1,7 @@
+---
+layout: article
+---
+
 2025-12-10 - Tom Marsh
 
 ---
