@@ -15,8 +15,6 @@ Currently based in Boston, Massachusetts, I am originally from Christchurch, New
 
 &nbsp;
 
-Platforms I have an account with:
-
 [<img src="../resources/icons/GitHub.png" height="32" width="32"/>](https://github.com/Graphight) 
 [<img src="../resources/icons/LinkedIn.png" height="32" width="32"/>](https://www.linkedin.com/in/tom-marsh-3aa764154/) 
 
