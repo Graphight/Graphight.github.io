@@ -5,8 +5,6 @@ layout: page
 # Resume
 
 
-[Human Readable](../resources/Resume.pdf)
-
-[Plain Text (ATS Friendly)](../resources/Resume_PlainText.pdf)
+[Tom Marsh 2025](../resources/Resume_ATS_Friendly.pdf)
 
 &nbsp;
