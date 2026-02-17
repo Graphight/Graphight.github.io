@@ -6,7 +6,7 @@ layout: page
 
 Side projects I've built in my spare time.
 
-## Space Probe [DEMO]
+## Space Probe
 
 A small strategy game built in Godot Engine while between jobs. Manage resources and explore the solar system.
 
