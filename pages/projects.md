@@ -17,5 +17,8 @@ Manage resources, explore the galaxy, and fight off opposing Von Neumann probe f
   </div>
 </div>
 
+If the embedded game isn't playing nice with your browser, play it directly on Itch.io using the following
+
+<iframe frameborder="0" src="https://itch.io/embed/4268671?linkback=true&amp;bg_color=000000&amp;fg_color=45fd1c&amp;link_color=ffffff&amp;border_color=333333" width="552" height="167"><a href="https://graphight.itch.io/space-probe">Space Probe by Graphight</a></iframe>
 
 &nbsp;
