@@ -6,7 +6,7 @@ layout: page
 
 ## Articles
 
-**2025-12-10** - [Bundle your column names](../articles/2025-12-10_BundleYourColumnNames.md)
+**2025-12-10** - [MLEs, Bundle your column names](../articles/2025-12-10_BundleYourColumnNames.md)
 
 ## Publications
 
