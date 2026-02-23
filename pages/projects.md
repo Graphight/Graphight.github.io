@@ -6,7 +6,7 @@ layout: page
 
 Side projects I've built in my spare time.
 
-## Space Probe
+## Space Probe - 2026-02-18
 
 A small strategy game built in Godot Engine while between jobs. 
 Manage resources, explore the galaxy, and fight off opposing Von Neumann probe fleets.
