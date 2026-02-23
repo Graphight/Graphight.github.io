@@ -4,7 +4,7 @@ layout: page
 
 # Home
 
-Kia ora, Welcome.
+Kia ora, welcome.
 
 I am a Machine Learning Engineer with a physics background and 8 years of experience building production systems at TB/PB scale. 
 
