@@ -7,7 +7,7 @@ layout: page
 Originally from Christchurch, New Zealand, after obtaining a US Green Card I moved to Boston, Massachusetts.
 I am a Machine Learning Engineer with 8 years of experience building production systems at TB/PB scale. 
 I have a Physics background and a track record of measurable business impact including foundational tech for a startup. 
-I want to apply these skills to humanity's burgeoning expansion into space, particularly problems in propulsion optimization, space manufacturing, autonomous mining, and in-situ resource utilization.
+Boston is full of bright people and I am always down to meet them.
 
 ## Career
 
