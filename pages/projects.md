@@ -21,4 +21,9 @@ If the embedded game isn't playing nice with your browser, play it directly on I
 
 <iframe frameborder="0" src="https://itch.io/embed/4268671?linkback=true&amp;bg_color=000000&amp;fg_color=45fd1c&amp;link_color=ffffff&amp;border_color=333333" width="552" height="167"><a href="https://graphight.itch.io/space-probe">Space Probe by Graphight</a></iframe>
 
+I made this game while job hunting as something fun to get me through the grind.
+I set the scope deliberately small so that I could actually ship a "complete" game in a short time frame.
+This was achieved in a little under a month of work so I am pretty proud of myself. 
+If you want to check out the code, I have made the repo public, https://github.com/Graphight/space-probe.
+
 &nbsp;
