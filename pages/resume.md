@@ -9,7 +9,7 @@ I understand the purpose of that style is to process well in ATS systems and the
 That being said, I have also included a `Human Friendly` experimental option that I think flows nicer and tells a better story.
 They should both contain the same information just formatted differently.
  
-- [ATS Friendly (Plain Text)](../resources/Resume_ATS_Friendly.pdf)
+- [ATS Friendly (Plain Text)](../resources/Resume_MLE.pdf)
 - [Human Friendly (Narrative Style)](../resources/Resume_Human_Friendly.pdf)
 
 If this experiment does not pan out then I will join the drudgery and only keep the plain text one. 
