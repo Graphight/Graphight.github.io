@@ -6,6 +6,8 @@ layout: page
 
 ## Articles
 
+**2026-03-07** - [ML Systems Resource Guide](../articles/2026-03-07_MLSystemsResourceGuide.md)
+
 **2025-12-10** - [MLEs, Bundle your column names](../articles/2025-12-10_BundleYourColumnNames.md)
 
 ## Publications
