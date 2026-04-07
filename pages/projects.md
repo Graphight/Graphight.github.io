@@ -4,7 +4,9 @@ layout: page
 
 # Projects
 
-Side projects I've built in my spare time.
+Side project(s) I've built in my spare time.
+
+More are coming in the future.
 
 ## Space Probe - 2026-02-18
 
