@@ -1,3 +1,11 @@
+---
+layout: article
+---
+
+2026-03-07 - Tom Marsh
+
+---
+
 # A Roadmap for ML Systems & Data Science
 
 This document collects resources I have found genuinely useful over my career as an ML engineer. It is not exhaustive and it is highly opinionated, so please take it with a grain of salt. To be blunt straight out of the gate, I am not a big fan of corporate certificates or generalised courses. I think they are fundamentally limited by their aspiration to be generalisable and your time could be better utilised building actual projects. That being said, do not worry if you have already done them, if you learnt something from them that is awesome, that was just _my_ opinion on them. The resources below are ones I think will actually move the needle if you engage with them seriously.
