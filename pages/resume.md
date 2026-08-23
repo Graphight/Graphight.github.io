@@ -4,6 +4,6 @@ layout: page
 
 # Resume
  
-- [Machine Learning Engineer (PDF)](../resources/Resume_MLE.pdf)
+- [Resume (PDF)](../resources/Tom_Marsh_Resume.pdf)
 
 &nbsp;
