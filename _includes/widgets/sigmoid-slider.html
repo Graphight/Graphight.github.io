@@ -4,10 +4,11 @@
 {%- assign value = include.value | default: 0 -%}
 <div class="widget" id="{{ wid }}">
 <style>
+#{{ wid }} { margin: 1.5em 0; padding: 1em; border: 1px solid var(--widget-border, #555); border-radius: 4px; }
 #{{ wid }} .sig-label { font-weight: bold; }
 #{{ wid }} .sig-controls input { width: 100%; }
-#{{ wid }} .sig-bar { height: 0.6em; background: #444; }
-#{{ wid }} .sig-fill { height: 100%; background: #9ddcff; }
+#{{ wid }} .sig-bar { height: 0.6em; background: var(--widget-track, #444); }
+#{{ wid }} .sig-fill { height: 100%; background: var(--widget-accent, #9ddcff); }
 </style>
 <p class="sig-label">{{ include.label | default: "Sigmoid explorer" }}</p>
 <p class="sig-fallback">σ(x) = 1 / (1 + e<sup>−x</sup>) squashes any input into (0, 1). Try x from {{ min }} to {{ max }}: large negative x gives values near 0, x = 0 gives 0.5, large positive x gives values near 1.</p>
