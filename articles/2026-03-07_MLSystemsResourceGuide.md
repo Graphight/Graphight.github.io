@@ -1,5 +1,6 @@
 ---
 layout: article
+interactive: true
 ---
 
 2026-03-07 - Tom Marsh
@@ -53,6 +54,12 @@ Soft skills become dramatically more important the further up you go. You can be
 
 - [Google PAIR Explorables](https://pair.withgoogle.com/explorables/)
   _Interactive mini case studies on interpretability, fairness, and model behavior. Worth browsing for real-world examples rather than theory._
+
+### Try It: The Sigmoid
+
+{% include widgets/sigmoid-slider.html id="default" %}
+
+{% include widgets/sigmoid-slider.html id="wide" label="Wider range" min=-20 max=20 value=3 %}
 
 ---
 
