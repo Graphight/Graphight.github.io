@@ -1,6 +1,5 @@
 .widget {
-  margin: 1.5em 0;
-  padding: 1em;
-  border: 1px solid #555;
-  border-radius: 4px;
+  --widget-border: #555;
+  --widget-track: #444;
+  --widget-accent: #9ddcff;
 }
