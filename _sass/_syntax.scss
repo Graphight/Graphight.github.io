@@ -1,3 +1,5 @@
+div.highlighter-rouge { @include dark; }
+
 // Rouge token classes mapped onto Warm Burnout's syntax roles.
 .highlight {
   .k, .kd, .kn, .kp, .kr, .kv, .ow { color: var(--kw); }
