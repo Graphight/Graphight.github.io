@@ -136,6 +136,8 @@ th { background: var(--surf); color: var(--hi); }
   font-weight: 700;
 }
 .button:hover { text-decoration: none; background: var(--surf); }
+.button.primary { background: var(--kw); color: var(--bg); }
+.button.primary:hover { opacity: 0.9; }
 
 .stats {
   display: grid;
@@ -147,6 +149,10 @@ th { background: var(--surf); color: var(--hi); }
 }
 .stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $display; color: var(--hi); }
 .stats dd { margin: 6px 0 0; font: 14px/1.5 $mono; color: var(--mute); }
+
+.home-section { padding-top: 48px; padding-bottom: 32px; }
+.home-section h2 { margin-top: 0; }
+#work .timeline { max-width: $column; }
 
 .article-end {
   display: flex;
