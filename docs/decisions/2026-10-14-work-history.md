@@ -15,9 +15,11 @@ November is correct, and About now says so.
 The proposal said the PDF predated Sprout; the committed PDF already lists Sprout Social (Senior ML Ops Engineer, Boston, Apr 2026 – Present), and the data file takes Sprout's title and dates from it.
 
 ## Design
-- **One entry per role or degree**, newest first: `org`, `title`, `start`, `end`, `place`, `line`, and an optional `link`.
+- **One entry per role or degree**, ordered by end date, newest first: `org`, `title`, `start`, `end`, `place`, `line`, and an optional `link`.
+  End-date order matches the PDF, and puts both Pyper Vision contracts after Ströer although they started later.
 - **Dates are display strings** ("Apr 2026", "Present"), and file order is display order, so nothing parses a date.
 - **Pyper Vision is two rows**, one per contract, because the contracts are a year apart.
+  Both titles say "part-time", as the PDF does, so the rows do not read as full-time work alongside Ströer.
 - **`line` is written by Tom**; the include renders a `line` only when it is set, so an empty one leaves no gap.
 - **The timeline is an `<ol class="timeline">`**: dates in mono `mute`, title and organisation in `hi`, place in `mute`, a `line`-coloured rule between rows.
   Each row is a column of spans, so a phone needs no separate layout.
@@ -26,8 +28,8 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
 
 ## Alternatives considered
 - **Generating the PDF from the data file.** A build step GitHub Pages does not run, and the resume is tailored per application anyway.
-- **Leaving the history as prose.** The Ströer date is what that cost.
-- **Dates as `YYYY-MM` values formatted by Liquid.** Sorting and formatting code for six rows already in order.
+- **Leaving the history as prose.** About and the PDF already disagreed on the Ströer end date.
+- **Dates as `YYYY-MM` values formatted by Liquid.** It needs sorting and formatting code for six rows that are already in order.
 - **Pyper Vision as one row.** It would show Jul 2024 – Nov 2025 and imply a continuous contract.
 
 ## Consequences & open questions
