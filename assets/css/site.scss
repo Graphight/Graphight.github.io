@@ -147,4 +147,11 @@ th { background: var(--surf); color: var(--hi); }
 .site-footer a { color: var(--ty); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 20px; }
 
+.timeline { list-style: none; margin: 1.5em 0; padding: 0; }
+.timeline li { display: flex; flex-direction: column; padding: 14px 0; border-top: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.timeline .when { font: 14px/1.5 $mono; color: var(--mute); }
+.timeline .what { color: var(--hi); font-weight: 700; }
+.timeline .where { font-size: 16px; color: var(--mute); }
+
 @import "syntax";
