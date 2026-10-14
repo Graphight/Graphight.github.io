@@ -1,5 +1,5 @@
 .widget {
-  --widget-border: #555;
-  --widget-track: #444;
-  --widget-accent: #9ddcff;
+  --widget-border: var(--line);
+  --widget-track: var(--line);
+  --widget-accent: var(--kw);
 }

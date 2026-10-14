@@ -1,6 +1,6 @@
-remote_theme: pages-themes/slate@v0.2.0
+theme: null
 plugins:
-  - jekyll-remote-theme
+  - jekyll-seo-tag
   - jekyll-sitemap
 
 title: Tom Marsh

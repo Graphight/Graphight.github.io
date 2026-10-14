@@ -2,14 +2,14 @@
 
 - Status: Draft
 - Created: 2026-10-14
-- Reflects: the five home boards of the design canvas drawn on 2026-10-14, judged by eye, which settled on Field (link in the theme proposal); `index.md` and the resume, read at `29cacb4`; not built
+- Reflects: the five home boards of the design canvas drawn on 2026-10-14, judged by eye, which settled on Field (link in decision `own-theme`); `index.md` and the resume, read at `29cacb4`; not built
 
 ## Summary
 The home page becomes a hero with the name and a line, three headline numbers, the experience timeline, then writing and projects side by side.
 The question: can the home page give a recruiter the numbers and the timeline in one scroll, without turning the site into a CV?
 
 ## Context
-`index.md` is three sentences and three icons.
+`index.md` is three sentences; its icon row went in decision `own-theme`, and the footer carries the social links.
 The strongest evidence of the work, the revenue and savings figures, sits only in the resume PDF and in the prose of About.
 The site's first job is to be a personal site; reading well to a recruiter is the second, and wanted only if it costs the first little.
 
@@ -22,7 +22,6 @@ First guesses, each to be checked on a phone and a laptop.
   Each is already on the resume; none is new.
 - **The timeline is the work history data file's** (the work history proposal), one row a role: dates, title, organisation, one line.
 - **Writing and projects sit side by side**, stacking on a phone; the publication sits in writing, and Space Probe in projects.
-- **The icon row goes**; GitHub, LinkedIn and itch.io move to the footer.
 
 ## Alternatives considered
 - **Index's identity sidebar.** The most recruiter-friendly, and its two columns wrap poorly on a phone.

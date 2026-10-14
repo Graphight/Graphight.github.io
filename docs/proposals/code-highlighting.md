@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Created: 2026-10-14
-- Reflects: the article boards of the design canvas drawn on 2026-10-14 (link in the theme proposal), where a Python block was coloured by hand in Warm Burnout's roles; the two articles in `articles/`, read at `29cacb4`; not built
+- Reflects: the article boards of the design canvas drawn on 2026-10-14 (link in decision `own-theme`), where a Python block was coloured by hand in Warm Burnout's roles; the two articles in `articles/`, read at `29cacb4`; not built
 
 ## Summary
 Fenced code is coloured by Rouge's classes mapped onto Warm Burnout's syntax roles, in one partial stylesheet.
