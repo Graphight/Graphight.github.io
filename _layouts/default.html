@@ -43,12 +43,12 @@
 <script>
 (function () {
   var root = document.documentElement, btn = document.getElementById("theme-toggle");
-  function current() {
-    return root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
-  function label() { btn.textContent = current() === "dark" ? "light" : "dark"; }
+  var os = matchMedia("(prefers-color-scheme: dark)");
+  function current() { return root.dataset.theme || (os.matches ? "dark" : "light"); }
+  function label() { btn.textContent = current() === "dark" ? "Switch to light" : "Switch to dark"; }
   btn.hidden = false;
   label();
+  os.addEventListener("change", label);
   btn.addEventListener("click", function () {
     var next = current() === "dark" ? "light" : "dark";
     root.dataset.theme = next;
