@@ -20,7 +20,7 @@ First guesses, each to be checked on a phone and a laptop.
   It is about 580 px tall.
 - **Three numbers sit under it**, each over a short label: €15M+ added annual revenue, $200K+ yearly egress savings, and 0 → 1 for Pyper Vision.
   Each is already on the resume; none is new.
-- **The timeline is the work history data file's** (the work history proposal), one row a role: dates, title, organisation, one line.
+- **The timeline is the work history data file's** (decision `work-history`), one row a role: dates, title, organisation, one line.
 - **Writing and projects sit side by side**, stacking on a phone; the publication sits in writing, and Space Probe in projects.
 
 ## Alternatives considered
