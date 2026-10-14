@@ -22,10 +22,14 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
   Both titles say "part-time", as the PDF does, so the rows do not read as full-time work alongside Ströer.
 - **`line` is written by Tom**; the include renders a `line` only when it is set, so an empty one leaves no gap.
 - **`points` are the PDF's bullets, word for word**, with each wrapped line joined.
-- **The timeline is an `<ol class="timeline">`**: dates in mono `mute`, title and organisation in `hi`, place in `mute`, a `line`-coloured rule between rows.
+- **The timeline is an `<ol class="timeline">`**: dates in mono `mute`, title and organisation in `hi`, place in `mute`.
   Each row is a column of spans, so a phone needs no separate layout.
 - **A row with `points` is a `<details>` element**: the summary is the row, and a click opens its points as a list.
   The browser handles the open and close, so the page adds no script, and a `+` or `−` in `kw` replaces the default marker.
+- **A spine runs down the left, with a side lane for the work done alongside Ströer**: the MSc and both Pyper Vision contracts carry `side: true`.
+  The side lane forks off the spine above the first `side` row and merges back below the last, and `side` dots are `ty`, main dots `kw`.
+  The lines are background gradients and two pseudo-elements on each row, so a row that opens stretches its own segment.
+  The spine shows overlap, not duration; rows sized by length of service would fight rows that open.
 - **The Resume page puts the PDF link first and the timeline under it.**
 - **About has no timeline**; its Career and Academia prose is unchanged apart from the Ströer date.
 
@@ -39,6 +43,8 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
 ## Consequences & open questions
 - The PDF still has to be updated by hand when the data file changes, and its bullets now have a second copy in `points`.
 - About's prose still states the Ströer, MSc and BSc date ranges by hand.
+- The spine and lane are `line` on `bg`, about 1.4:1, below the 3:1 for graphics; the dots carry the same information at higher contrast.
+- The side lane assumes one run of `side` rows; a second, separate run would be drawn as one lane through the `main` rows between them.
 - No entry has a `link` yet.
 - The home page timeline is proposal `home-page`, which reads this file.
 - The timeline has not been checked by eye on a phone or a laptop, in either mode.
