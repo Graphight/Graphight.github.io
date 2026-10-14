@@ -50,6 +50,8 @@ $mono: "JetBrains Mono", ui-monospace, monospace;
 
 * { box-sizing: border-box; }
 
+html { scroll-padding-top: 80px; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -109,7 +111,13 @@ th { background: var(--surf); color: var(--hi); }
   text-align: center;
 }
 
-.site-header { border-bottom: 1px solid var(--line); }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
 .site-header .wrap {
   display: flex;
   flex-wrap: wrap;
