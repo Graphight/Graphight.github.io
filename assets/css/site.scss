@@ -148,10 +148,17 @@ th { background: var(--surf); color: var(--hi); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 20px; }
 
 .timeline { list-style: none; margin: 1.5em 0; padding: 0; }
-.timeline li { display: flex; flex-direction: column; padding: 14px 0; border-top: 1px solid var(--line); }
-.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.timeline > li { padding: 14px 0; border-top: 1px solid var(--line); }
+.timeline > li:last-child { border-bottom: 1px solid var(--line); }
+.timeline summary { display: flex; flex-direction: column; cursor: pointer; list-style: none; padding-right: 28px; position: relative; }
+.timeline summary::-webkit-details-marker { display: none; }
+.timeline summary::after { content: "+"; position: absolute; top: 0; right: 0; font: 20px/1.2 $mono; color: var(--kw); }
+.timeline details[open] summary::after { content: "−"; }
 .timeline .when { font: 14px/1.5 $mono; color: var(--mute); }
 .timeline .what { color: var(--hi); font-weight: 700; }
 .timeline .where { font-size: 16px; color: var(--mute); }
+.timeline .line { margin-top: 4px; }
+.timeline ul { margin: 12px 0 0; padding-left: 1.2em; font-size: 17px; }
+.timeline ul li + li { margin-top: 6px; }
 
 @import "syntax";
