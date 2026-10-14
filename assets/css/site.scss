@@ -149,23 +149,12 @@ th { background: var(--surf); color: var(--hi); }
 
 .timeline { list-style: none; margin: 1.5em 0; padding: 0; }
 .timeline > li {
-  --main-top: 0px;
-  --main-h: 100%;
-  --side-top: 0px;
-  --side-h: 0px;
   position: relative;
   padding: 12px 0 12px 48px;
-  background-image: linear-gradient(var(--line), var(--line)), linear-gradient(var(--line), var(--line));
-  background-repeat: no-repeat;
-  background-position: 7px var(--main-top), 27px var(--side-top);
-  background-size: 2px var(--main-h), 2px var(--side-h);
+  background: linear-gradient(var(--line), var(--line)) 7px 0 / 2px 100% no-repeat;
 }
-.timeline > li:first-child { --main-top: 22px; }
-.timeline > li:last-child { --main-h: 22px; }
-.timeline > li.branch { --side-h: 100%; }
-.timeline > li.branch-top { --side-top: 16px; }
-.timeline > li.branch-end { --side-h: calc(100% - 16px); }
-.timeline > li.branch-top.branch-end { --side-h: calc(100% - 32px); }
+.timeline > li:first-child { background-position: 7px 22px; }
+.timeline > li:last-child { background-size: 2px 22px; }
 .timeline > li::before {
   content: "";
   position: absolute;
@@ -178,18 +167,17 @@ th { background: var(--surf); color: var(--hi); }
   background: var(--bg);
 }
 .timeline > li.side::before { left: 22px; border-color: var(--ty); }
-.timeline > li.branch-top::after,
-.timeline > li.branch-end::after {
+.timeline > li.side::after {
   content: "";
   position: absolute;
+  top: 8px;
   left: 7px;
-  width: 22px;
+  width: 15px;
   height: 16px;
   border: 0 solid var(--line);
-  border-right-width: 2px;
+  border-width: 0 0 2px 2px;
+  border-bottom-left-radius: 12px;
 }
-.timeline > li.branch-top::after { top: 0; border-top-width: 2px; border-top-right-radius: 12px; }
-.timeline > li.branch-end::after { bottom: 0; border-bottom-width: 2px; border-bottom-right-radius: 12px; }
 .timeline summary { display: flex; flex-direction: column; cursor: pointer; list-style: none; padding-right: 28px; position: relative; }
 .timeline summary::-webkit-details-marker { display: none; }
 .timeline summary::after { content: "+"; position: absolute; top: 0; right: 0; font: 20px/1.2 $mono; color: var(--kw); }

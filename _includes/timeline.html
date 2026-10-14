@@ -1,12 +1,5 @@
-{%- for role in site.data.experience %}
-{%- if role.side %}
-{%- unless top %}{% assign top = forloop.index0 %}{% endunless %}
-{%- assign bottom = forloop.index0 %}
-{%- endif %}
-{%- endfor %}
 <ol class="timeline">
 {%- for role in site.data.experience %}
-{%- assign i = forloop.index0 %}
 {%- capture head %}
 <span class="when">{{ role.start }} – {{ role.end }}</span>
 <span class="what">{{ role.title }} · {% if role.link %}<a href="{{ role.link }}">{{ role.org }}</a>{% else %}{{ role.org }}{% endif %}</span>
@@ -15,7 +8,7 @@
 <span class="line">{{ role.line }}</span>
 {%- endif %}
 {%- endcapture %}
-<li class="{% if role.side %}side{% else %}main{% endif %}{% if top %}{% if i >= top and i <= bottom %} branch{% endif %}{% if i == top %} branch-top{% endif %}{% if i == bottom %} branch-end{% endif %}{% endif %}">
+<li{% if role.side %} class="side"{% endif %}>
 {%- if role.points %}
 <details>
 <summary>{{ head }}
