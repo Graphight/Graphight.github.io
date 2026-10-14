@@ -180,4 +180,47 @@ th { background: var(--surf); color: var(--hi); }
 .site-footer a { color: var(--ty); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 20px; }
 
+.timeline { list-style: none; margin: 1.5em 0; padding: 0; }
+.timeline > li {
+  position: relative;
+  padding: 12px 0 12px 48px;
+  background: linear-gradient(var(--line), var(--line)) 7px 0 / 2px 100% no-repeat;
+}
+.timeline > li:first-child { background-position: 7px 22px; }
+.timeline > li:last-child { background-size: 2px 22px; }
+.timeline > li::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--kw);
+  border-radius: 50%;
+  background: var(--bg);
+}
+.timeline > li.side::before { left: 22px; border-color: var(--ty); }
+.timeline > li.note::before { top: 19px; left: 4px; width: 8px; height: 8px; border: 0; background: var(--mute); }
+.timeline > li.side::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  width: 15px;
+  height: 16px;
+  border: 0 solid var(--line);
+  border-width: 0 0 2px 2px;
+  border-bottom-left-radius: 12px;
+}
+.timeline summary { display: flex; flex-direction: column; cursor: pointer; list-style: none; padding-right: 28px; position: relative; }
+.timeline summary::-webkit-details-marker { display: none; }
+.timeline summary::after { content: "+"; position: absolute; top: 0; right: 0; font: 20px/1.2 $mono; color: var(--kw); }
+.timeline details[open] summary::after { content: "−"; }
+.timeline .when { font: 14px/1.5 $mono; color: var(--mute); }
+.timeline .what { color: var(--hi); font-weight: 700; }
+.timeline .where { font-size: 16px; color: var(--mute); }
+.timeline .line { margin-top: 4px; }
+.timeline ul { margin: 12px 0 0; padding-left: 1.2em; font-size: 17px; }
+.timeline ul li + li { margin-top: 6px; }
+
 @import "syntax";

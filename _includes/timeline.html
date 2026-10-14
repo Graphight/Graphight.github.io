@@ -1,0 +1,30 @@
+<ol class="timeline">
+{%- for role in site.data.experience %}
+{%- if role.note %}
+<li class="note"><span class="when">{{ role.start }} · {{ role.note }}</span></li>
+{%- continue %}
+{%- endif %}
+{%- capture head %}
+<span class="when">{{ role.start }} – {{ role.end }}</span>
+<span class="what">{{ role.title }} · {% if role.link %}<a href="{{ role.link }}">{{ role.org }}</a>{% else %}{{ role.org }}{% endif %}</span>
+<span class="where">{{ role.place }}</span>
+{%- if role.line %}
+<span class="line">{{ role.line }}</span>
+{%- endif %}
+{%- endcapture %}
+<li{% if role.side %} class="side"{% endif %}>
+{%- if role.points %}
+<details>
+<summary>{{ head }}
+</summary>
+<ul>
+{%- for point in role.points %}
+<li>{{ point | escape }}</li>
+{%- endfor %}
+</ul>
+</details>
+{%- else %}{{ head }}
+{%- endif %}
+</li>
+{%- endfor %}
+</ol>
