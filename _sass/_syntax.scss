@@ -1,4 +1,22 @@
-div.highlighter-rouge { @include dark; }
+div.highlighter-rouge { @include dark; margin: 1em 0; }
+div.highlighter-rouge pre { margin: 0; }
+div.highlighter-rouge::before {
+  display: block;
+  width: fit-content;
+  padding: 2px 12px;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  color: var(--mute);
+  font: 13px/1.6 $mono;
+}
+
+// One entry per language the articles use; plaintext stays unlabelled.
+@each $lang in python {
+  .language-#{$lang}::before { content: "#{$lang}"; }
+  .language-#{$lang} pre { border-top-left-radius: 0; }
+}
 
 // Rouge token classes mapped onto Warm Burnout's syntax roles.
 .highlight {
