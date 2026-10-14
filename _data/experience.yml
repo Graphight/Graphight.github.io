@@ -4,6 +4,12 @@
   end: Present
   place: Boston, MA
   line: I am part of the small team building the agentic evaluations platform while also helping maintain existing traditional ML pipelines
+  points:
+    - "Root-caused unbounded GPU memory growth across a 12-service model-serving fleet to an undocumented ONNX Runtime defect that had shipped for three minor versions: established cold footprint byte-identical across image versions, isolated growth to distinct inference threads rather than concurrent request load, and falsified the concurrency-limiting hypothesis by semaphore tuning; findings drove the remediation and a seven-item SRE/ML action plan"
+    - "Built the batch evaluation pipeline at the core of the company's LLM evaluation framework: data model, input loading, parallel executor with deterministic result ordering, and an adaptive AIMD tokens-per-second throttle that backs off on provider rate limits and ramps back up; now the shared path other teams' evaluations run on"
+    - "Led CUDA 13 and Python 3.12 migration across 12 GPU inference services, moving both axes simultaneously to close torch/onnxruntime CVEs that were hard-capped by the previous base image, re-resolving the full dependency constraint set across 27 files"
+    - "Audited the evaluation framework's datasets against live agent behaviour after tool-schema drift, surfacing three production agent defects (result ordering, chart-type nondeterminism, and relative-date resolution), each reported to the owning squad with trace spans to reproduce"
+    - "Redesigned production ML service alerting: root-caused a flapping latency monitor to pod-roll noise rather than client impact, rewrote it as p95 with hysteresis gated on downstream queue backlog, and replaced 12 monitors generating ~90 pages/day with two notify-only ones"
 
 - org: Pyper Vision
   title: Founding Machine Learning Engineer (Contract 2, part-time)
@@ -11,6 +17,9 @@
   end: Nov 2025
   place: Christchurch, New Zealand
   line: This contract involved adapting current academic research to programmatically label our fog event data based on their physical properties
+  points:
+    - "Designed a physics-validated fog classification system using a pseudo-labelling pipeline derived from meteorological research papers"
+    - "Implemented clustering analysis by airport fog patterns and model error modes, creating a systematic debugging framework for the operations team to diagnose regional forecast failures"
 
 - org: Ströer Labs NZ
   title: Senior Machine Learning Engineer
@@ -18,6 +27,19 @@
   end: Nov 2025
   place: Christchurch, New Zealand
   line: The highlight of my time here was building the ML models and infrastructure around the direct rendering product, lowering ad render times by 50% and increasing annual revenue by €15M+
+  points:
+    - "Reduced ad impression render time by 50% through ML inference optimisation, generating €15M+ additional annual revenue across 3B+ daily ad requests (1T+ annually)"
+    - "Led complete migration of ML data pipelines from Spark to DBT, eliminating Spark cluster costs ($10K+/month), reducing pipeline runtime 85% (20 min to 3 min), and simplifying maintenance for the successor team"
+    - "Architected migration from AWS SageMaker to custom Kubernetes infrastructure, enabling GPU training for LightGBM models (previously impossible), unifying ML platform with company infrastructure"
+    - "Designed and deployed real-time bid optimization system selecting demand-side partners or dropping traffic entirely, operating under p99 sub-20ms latency at 100K+ requests/second"
+    - "Cut cloud egress costs by 35% ($200K+ annually) for product vertical through ML optimisation; maintenance team expanded savings to $30K/month post-transition"
+    - "Led 0-1 development of multiple ML products (classification, time-series forecasting, optimisation) from concept to production on PB-scale datasets, establishing technical architecture before transitioning to dedicated teams"
+    - "Built and owned ML experimentation platform through multiple iterations (custom webapp, Grafana dashboards, MLFlow), enabling stratified A/B performance analysis across 3B+ daily ad impressions and driving data-informed model iteration"
+    - "Built model monitoring dashboards with stratified performance views, SHAP-based feature importance reporting, and compliance documentation to support measurable, explainable, and auditable ML decisions"
+    - "Drove ML platform modernisation during the company's bare-metal-to-AWS migration, collaborating with DevOps and Data Engineering to redesign datalakes, account structures, and deployment practices"
+    - "Designed technical interview process for ML Engineering roles: created programming assessments, architecture evaluation framework, and systems design questions used across MLE/SWE/DevOps hiring"
+    - "Conducted 80+ technical interviews over 6 years, contributing to 15 hires as the NZ office grew from 20 to 30 engineers"
+    - "Hosted interns each summer and mentored juniors through intermediate"
 
 - org: Pyper Vision
   title: Founding Machine Learning Engineer (Contract 1, part-time)
@@ -25,6 +47,11 @@
   end: Feb 2025
   place: Christchurch, New Zealand
   line: I was sought out to help pivot the company from hardware to SaaS by building the entire ML prototype and eventual production pipelines
+  points:
+    - "Established complete ML infrastructure as sole technical hire, enabling aerospace startup pivot from hardware to ML-based fog forecasting (company expanded 5 to 20+ airports, valued $10M+ post-funding)"
+    - "Architected end-to-end system on GCP from scratch: automated data collection, preprocessing pipelines, model training infrastructure, and production inference API with <100ms p99 latency"
+    - "Evaluated and deployed model architectures (LightGBM GBDT, TensorFlow CNNs), achieving commercially competitive forecast accuracy, delivering a production system in 8 months"
+    - "System scaled to UK market expansion (advised on integration strategy post-contract)"
 
 - org: University of Canterbury
   title: MSc, Physics
@@ -32,6 +59,11 @@
   end: Jul 2024
   place: Christchurch, New Zealand
   line: My research involved extreme weather event simulation and forecasting using the weather@home distributed computing project
+  points:
+    - "Thesis: Extreme precipitation events under climate change using 4000+ years of simulation data at multiple resolutions"
+    - "Collaboration with NZ's National Institute of Water and Atmospheric Research (NIWA)"
+    - "Publication: Harrington, Rosier, Marsh, Frame (2024), \"Robust changes to the wettest and driest days of the year are hidden within annual rainfall projections: a New Zealand case study\", Environmental Research Letters, 19, 074057"
+    - "Presented research at the Meteorological Society of New Zealand Annual Conference (2023)"
 
 - org: University of Canterbury
   title: BSc, Physics & Computer Science
@@ -39,3 +71,5 @@
   end: Nov 2017
   place: Christchurch, New Zealand
   line: My research involved using pulsed laser deposition to grow thin films of quantum semiconductors
+  points:
+    - "Capstone: Y2SiO5 thin film growth for quantum information devices using Pulsed Laser Deposition"
