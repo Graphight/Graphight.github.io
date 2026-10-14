@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Created: 2026-10-14
-- Reflects: the Field article board of the design canvas drawn on 2026-10-14 and the five article boards before it, judged by eye (link in the theme proposal); `_layouts/article.html` and `_includes/navigation.html`, read at `29cacb4`; not built
+- Reflects: the Field article board of the design canvas drawn on 2026-10-14 and the five article boards before it, judged by eye (link in decision `own-theme`); `_layouts/article.html` and `_includes/navigation.html`, read at `29cacb4`; not built
 
 ## Summary
 Every page shares a sticky nav bar; an article opens on a short band holding its date and title, then a single reading column.
