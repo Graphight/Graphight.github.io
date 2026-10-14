@@ -12,5 +12,24 @@ layout: default
 <div class="column">
 {{ content }}
 
-<p><a href="#">↑ Back to top</a></p>
+{%- assign articles = site.pages | where: "layout", "article" | sort: "date" %}
+{%- assign older = nil %}
+{%- assign newer = nil %}
+{%- for a in articles %}
+  {%- if a.url == page.url %}
+    {%- assign i = forloop.index0 | minus: 1 %}
+    {%- if i >= 0 %}{% assign older = articles[i] %}{% endif %}
+    {%- assign newer = articles[forloop.index] %}
+  {%- endif %}
+{%- endfor %}
+<nav class="article-end" aria-label="More writing">
+  {%- if older %}
+  <a href="{{ older.url | relative_url }}">← {{ older.title | escape }}</a>
+  {%- endif %}
+  {%- if newer %}
+  <a href="{{ newer.url | relative_url }}">{{ newer.title | escape }} →</a>
+  {%- endif %}
+  <a href="{{ '/pages/writing' | relative_url }}">All writing</a>
+  <a href="#">↑ Back to top</a>
+</nav>
 </div>

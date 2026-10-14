@@ -112,6 +112,16 @@ th { background: var(--surf); color: var(--hi); }
 .band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
 .band + .column > p:first-child { font-size: 22px; }
 
+.article-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+}
+
 .notice {
   margin: 0;
   padding: 6px 24px;
