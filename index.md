@@ -26,3 +26,24 @@ layout: default
   <h2>Work</h2>
   {% include timeline.html %}
 </section>
+
+<div class="wrap home-section pair">
+  <section>
+    <h2>Writing</h2>
+    <ul class="entries">
+      {%- assign articles = site.pages | where: "layout", "article" | sort: "date" | reverse %}
+      {%- for a in articles %}
+      <li><span class="when">{{ a.date | date: "%Y-%m-%d" }}</span><a href="{{ a.url | relative_url }}">{{ a.title | escape }}</a></li>
+      {%- endfor %}
+      <li><span class="when">2024 · Environmental Research Letters</span><a href="https://iopscience.iop.org/article/10.1088/1748-9326/ad585a">Robust changes to the wettest and driest days of the year are hidden within annual rainfall projections: a New Zealand case study</a></li>
+    </ul>
+    <a href="{{ '/pages/writing' | relative_url }}">All writing →</a>
+  </section>
+  <section>
+    <h2>Projects</h2>
+    <ul class="entries">
+      <li><span class="when">2026-02-18 · Godot</span><a href="{{ '/pages/projects' | relative_url }}">Space Probe</a>A small strategy game built in Godot Engine while between jobs.</li>
+    </ul>
+    <a href="{{ '/pages/projects' | relative_url }}">All projects →</a>
+  </section>
+</div>
