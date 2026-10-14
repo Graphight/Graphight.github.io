@@ -146,3 +146,5 @@ th { background: var(--surf); color: var(--hi); }
 }
 .site-footer a { color: var(--ty); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+@import "syntax";

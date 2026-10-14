@@ -1,0 +1,11 @@
+// Rouge token classes mapped onto Warm Burnout's syntax roles.
+.highlight {
+  .k, .kd, .kn, .kp, .kr, .kv, .ow { color: var(--kw); }
+  .nf, .fm, .nb { color: var(--fn); }
+  .nc, .kt, .bp { color: var(--ty); }
+  .s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss, .dl { color: var(--str); }
+  .m, .mi, .mf, .mh, .mo, .mb, .mx, .il, .kc, .no { color: var(--con); }
+  .nd { color: var(--dec); }
+  .c, .c1, .cm, .ch, .cp, .cpf, .cs { color: var(--mute); font-style: italic; }
+  .o { color: var(--op); }
+}
