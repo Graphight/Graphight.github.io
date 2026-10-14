@@ -137,6 +137,17 @@ th { background: var(--surf); color: var(--hi); }
 }
 .button:hover { text-decoration: none; background: var(--surf); }
 
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+.stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $display; color: var(--hi); }
+.stats dd { margin: 6px 0 0; font: 14px/1.5 $mono; color: var(--mute); }
+
 .article-end {
   display: flex;
   flex-wrap: wrap;

@@ -12,3 +12,11 @@ layout: default
     </p>
   </div>
 </section>
+
+<section class="wrap">
+  <dl class="stats">
+    <div><dt>€15M+</dt><dd>added annual revenue</dd></div>
+    <div><dt>$200K+</dt><dd>yearly egress savings</dd></div>
+    <div><dt>0 → 1</dt><dd>for Pyper Vision</dd></div>
+  </dl>
+</section>
