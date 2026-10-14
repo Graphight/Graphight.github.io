@@ -4,4 +4,5 @@
   <a href="{{ '/pages/resume' | relative_url }}"{% if here == '/pages/resume' %} aria-current="page"{% endif %}>Resume</a>
   <a href="{{ '/pages/projects' | relative_url }}"{% if here == '/pages/projects' %} aria-current="page"{% endif %}>Projects</a>
   <a href="{{ '/pages/writing' | relative_url }}"{% if here == '/pages/writing' or page.layout == 'article' %} aria-current="page"{% endif %}>Writing</a>
+  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch colour theme" hidden></button>
 </nav>

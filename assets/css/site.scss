@@ -111,6 +111,18 @@ th { background: var(--surf); color: var(--hi); }
 .site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; font-size: 16px; }
 .site-nav a { color: var(--fg); }
 .site-nav a[aria-current="page"] { color: var(--kw); font-weight: 700; }
+.theme-toggle {
+  font: inherit;
+  font-size: 14px;
+  color: var(--hi);
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  min-height: 36px;
+  cursor: pointer;
+}
+.theme-toggle[hidden] { display: none; }
 
 .site-footer { border-top: 1px solid var(--line); font-family: $mono; font-size: 14px; color: var(--mute); }
 .site-footer .wrap {
