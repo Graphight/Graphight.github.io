@@ -114,6 +114,29 @@ th { background: var(--surf); color: var(--hi); }
 .band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
 .band + .column > p:first-child { font-size: 22px; }
 
+.hero { border-bottom: 1px solid var(--line); }
+.hero .wrap {
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.hero h1 { font-size: clamp(56px, 12vw, 128px); margin: 0 0 0.2em; }
+.kicker { margin: 0 0 16px; font: 14px/1.5 $mono; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase; }
+.lede { max-width: 38em; margin: 0; font-size: 21px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 0; }
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--kw);
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.button:hover { text-decoration: none; background: var(--surf); }
+
 .article-end {
   display: flex;
   flex-wrap: wrap;
