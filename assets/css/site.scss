@@ -47,8 +47,12 @@
 $display: "Bricolage Grotesque", system-ui, sans-serif;
 $body: "Atkinson Hyperlegible", system-ui, sans-serif;
 $mono: "JetBrains Mono", ui-monospace, monospace;
+$column: 900px;
 
 * { box-sizing: border-box; }
+
+html { scroll-padding-top: 152px; }
+@media (min-width: 640px) { html { scroll-padding-top: 80px; } }
 
 body {
   margin: 0;
@@ -95,7 +99,30 @@ th, td { border: 1px solid var(--line); padding: 6px 12px; text-align: left; }
 th { background: var(--surf); color: var(--hi); }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-.column { max-width: 900px; margin: 0 auto; padding: 56px 24px 80px; }
+.column { max-width: $column; margin: 0 auto; padding: 56px 24px 80px; }
+
+.band { background: var(--surf); border-bottom: 1px solid var(--line); }
+.band-inner {
+  max-width: $column;
+  min-height: 200px;
+  margin: 0 auto;
+  padding: 40px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
+.band + .column > p:first-child { font-size: 22px; }
+
+.article-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+}
 
 .notice {
   margin: 0;
@@ -109,7 +136,13 @@ th { background: var(--surf); color: var(--hi); }
   text-align: center;
 }
 
-.site-header { border-bottom: 1px solid var(--line); }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
 .site-header .wrap {
   display: flex;
   flex-wrap: wrap;

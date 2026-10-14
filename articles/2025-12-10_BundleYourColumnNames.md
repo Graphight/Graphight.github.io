@@ -1,12 +1,9 @@
 ---
 layout: article
+title: "MLEs, Bundle your column names"
+date: 2025-12-10
+author: Tom Marsh
 ---
-
-2025-12-10 - Tom Marsh
-
----
-
-# MLEs, Bundle your column names
 
 I have spent a fair amount of time *"productionising"* my own and other people's machine learning prototyping code. 
 One simple tool I do not see used enough is a mechanism or system to store your column names.
