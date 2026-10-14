@@ -8,3 +8,10 @@ description: Physics | Machine Learning | Engineering
 url: https://graphight.github.io
 baseurl: ""
 repository: Graphight/Graphight.github.io
+
+exclude:
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/

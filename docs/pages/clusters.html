@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clusters · six iterations</title>
+<style>
+  :root{
+    --bg:#1a1510; --panel:#221c15; --line:#3a2f26;
+    --ink:#bfbdb6; --dim:#b4a89c; --brass:#deb074; --amber:#ffb454;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);padding:28px 20px 56px;
+       font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .wrap{max-width:940px;margin:0 auto}
+  h1{font-size:13px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+     color:var(--dim);margin:0 0 4px}
+  .sub{color:#8a7f74;font-size:12px;margin:0 0 20px}
+  h2{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+     color:var(--dim);margin:34px 0 12px}
+  .bench{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+         padding:22px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+  .controls{flex:1;min-width:280px;display:flex;flex-direction:column;gap:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  button{font:inherit;color:var(--dim);background:transparent;cursor:pointer;
+         border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+  button:hover{color:var(--ink);border-color:var(--brass)}
+  button[aria-pressed=true]{color:#1a1510;background:var(--amber);border-color:var(--amber)}
+  .row{display:flex;align-items:center;gap:12px}
+  .row label{color:var(--dim);white-space:nowrap;display:flex;gap:7px;align-items:center}
+  input[type=range]{flex:1;accent-color:var(--amber)}
+  .read{color:var(--amber);min-width:3.6em;text-align:right}
+  .seed{color:#8a7f74;font-size:12px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .cell{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+        padding:12px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .cell canvas{cursor:pointer}
+  .cell span{font-size:11px;color:var(--dim)}
+  .cell em{font-size:10px;color:#8a7f74;font-style:normal}
+  p.note{color:#8a7f74;font-size:12px;max-width:66ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>clusters · six iterations</h1>
+  <p class="sub">every run reseeds. click any canvas to reroll it.</p>
+
+  <div class="bench" id="bench">
+    <canvas id="big"></canvas>
+    <div class="controls">
+      <div class="chips" id="chips"></div>
+      <div class="row">
+        <label>progress</label>
+        <input type="range" id="prog" min="0" max="1" step="0.004" value="0">
+        <span class="read" id="read">0%</span>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" id="auto"> loop on a timer</label>
+        <button id="reroll">reroll</button>
+        <span class="seed" id="seed"></span>
+      </div>
+      <p class="note" id="blurb"></p>
+    </div>
+  </div>
+
+  <h2>at spinner size</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+/* ================= palette: Warm Burnout (dark) ================= */
+const STONE = '#b4a89c', BRASS = '#deb074';
+const CLUSTER = ['#ffb454','#dc9e92','#96b898','#90aec0','#d4a8b8','#b4bc78','#ec9878'];
+
+/* ================= helpers ================= */
+const TAU = Math.PI*2;
+const lerp = (a,b,t) => a + (b-a)*t;
+const clamp = (v,a,b) => v<a?a:v>b?b:v;
+const smooth = t => t*t*(3-2*t);
+const d2 = (a,b) => (a[0]-b[0])**2 + (a[1]-b[1])**2;
+const rgb = h => [1,3,5].map(i => parseInt(h.slice(i,i+2),16));
+const mixc = (a,b,t) => `rgb(${a.map((v,i)=>Math.round(lerp(v,b[i],t))).join()})`;
+
+function mulberry(seed){
+  return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed>>>15, 1 | seed);
+    t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t;
+    return ((t ^ t>>>14) >>> 0) / 4294967296; };
+}
+const gauss = r => (r()+r()+r()-1.5)*1.15;
+const shuffle = (a,r) => { for(let i=a.length-1;i>0;i--){ const j=(r()*(i+1))|0;
+  [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const mean = ps => [ps.reduce((s,p)=>s+p[0],0)/ps.length,
+                    ps.reduce((s,p)=>s+p[1],0)/ps.length];
+
+function hull(ps){                                   // monotone chain
+  if(ps.length < 3) return ps.slice();
+  const s = ps.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  const cr = (o,a,b) => (a[0]-o[0])*(b[1]-o[1]) - (a[1]-o[1])*(b[0]-o[0]);
+  const half = arr => { const h=[];
+    for(const p of arr){ while(h.length>1 && cr(h[h.length-2],h[h.length-1],p)<=0) h.pop();
+      h.push(p); } h.pop(); return h; };
+  return half(s).concat(half(s.reverse()));
+}
+const pad = (poly, k=1.13) => { const c = mean(poly);
+  return poly.map(p => [c[0]+(p[0]-c[0])*k, c[1]+(p[1]-c[1])*k]); };
+// a tight or collinear group has no meaningful hull — draw nothing rather than a sliver
+const outline = (g, k) => { const h = hull(g); return h.length > 2 ? pad(h, k) : null; };
+
+/* ================= source: the net ================= */
+const N = 24, LAYERS = [5,7,7,5];
+const GRID = [], NET_EDGES = [];
+LAYERS.forEach((c,li)=>{ for(let i=0;i<c;i++)
+  GRID.push([.16 + li*.68/(LAYERS.length-1), .5 + (i-(c-1)/2)*.115]); });
+for(let li=0, off=0; li<LAYERS.length-1; off+=LAYERS[li], li++)
+  for(let i=0;i<LAYERS[li];i++) for(let j=0;j<LAYERS[li+1];j++)
+    if((i*7 + j*3 + li) % 2) NET_EDGES.push([off+i, off+LAYERS[li]+j]);
+
+/* random ground-truth blobs — the "embeddings" for this run */
+function blobs(r, k){
+  const cen = [];
+  for(let tries=0; cen.length<k && tries<400; tries++){
+    const c = [.24+r()*.52, .24+r()*.52];
+    if(cen.every(o => d2(o,c) > .05 - tries*.0001)) cen.push(c);
+  }
+  while(cen.length<k) cen.push([.24+r()*.52, .24+r()*.52]);
+  const w = Array.from({length:k},()=>.6+r()), tot = w.reduce((a,b)=>a+b);
+  const label = [];
+  w.forEach((v,i)=>{ const c=Math.max(3, Math.round(N*v/tot));
+    for(let j=0;j<c;j++) label.push(i); });
+  while(label.length > N) label.pop();
+  while(label.length < N) label.push(k-1);
+  shuffle(label, r);
+  const sp = .05 + r()*.03;
+  const pts = label.map(l => [clamp(cen[l][0]+gauss(r)*sp,.07,.93),
+                              clamp(cen[l][1]+gauss(r)*sp,.07,.93)]);
+  return { pts, label, cen, k };
+}
+
+/* ================= variants =================
+   Each returns { frames, blurb }. A frame is a snapshot of the algorithm:
+     pos[N]   node positions            group[N] cluster id, -1 = unassigned
+     links    [a, b, bIsMark]           marks    extra points (centroids)
+     strokes  polylines (hulls)
+   The algorithm runs once at build time and is replayed by progress, so
+   scrubbing backwards is free and the same seed always gives the same run. */
+const VARIANTS = {
+
+  lloyd: { label:'lloyd', build(r){
+    const k = 3 + (r()<.35 ? 1 : 0);
+    const { pts } = blobs(r, k);
+    let cent = shuffle(pts.map(p=>p.slice()), r).slice(0,k);   // Forgy init
+    const frames = [{ pos:pts, group:pts.map(()=>-1), links:[], marks:cent, strokes:[] }];
+    for(let it=0; it<7; it++){
+      const group = pts.map(p => cent.reduce((b,c,ci)=>
+        d2(p,c) < d2(p,cent[b]) ? ci : b, 0));
+      const links = pts.map((_,i)=>[i, group[i], 1]);
+      frames.push({ pos:pts, group, links, marks:cent, strokes:[] });   // assign
+      cent = cent.map((c,ci)=>{ const m = pts.filter((_,i)=>group[i]===ci);
+        return m.length ? mean(m) : c.slice(); });
+      frames.push({ pos:pts, group, links, marks:cent, strokes:[] });   // move
+    }
+    return { frames, blurb:
+      'Real Lloyd iteration on a fresh sample. The points never move — the centroids '
+      + 'do, and colour pops when a point changes hands. Bad Forgy inits happen.' };
+  }},
+
+  agglomerative: { build(r){
+    const { pts } = blobs(r, 3);
+    const pos = pts.map(p=>p.slice()), comp = pts.map((_,i)=>i), links = [];
+    const frames = [{ pos:pos.map(p=>p.slice()), group:pts.map(()=>-1),
+                      links:[], marks:[], strokes:[] }];
+    const ids = () => { const size = {}, order = [];
+      comp.forEach(c => { size[c] = (size[c]||0)+1; });
+      Object.keys(size).filter(c=>size[c]>1)
+        .sort((a,b)=>size[b]-size[a]).forEach(c=>order.push(+c));
+      return comp.map(c => size[c] > 1 ? order.indexOf(c) : -1); };
+    while(new Set(comp).size > 3){
+      let best = null, bd = Infinity;                       // single linkage
+      for(let i=0;i<N;i++) for(let j=i+1;j<N;j++)
+        if(comp[i] !== comp[j] && d2(pos[i],pos[j]) < bd){ bd = d2(pos[i],pos[j]); best=[i,j]; }
+      links.push([best[0], best[1], 0]);
+      const gone = comp[best[1]], keep = comp[best[0]];
+      comp.forEach((c,i)=>{ if(c === gone) comp[i] = keep; });
+      const cs = {};                                        // gentle contraction
+      comp.forEach((c,i)=>{ (cs[c] = cs[c] || []).push(pos[i]); });
+      pos.forEach((p,i)=>{ const c = mean(cs[comp[i]]);
+        p[0] = lerp(p[0], c[0], .07); p[1] = lerp(p[1], c[1], .07); });
+      frames.push({ pos:pos.map(p=>p.slice()), group:ids(),
+                    links:links.slice(), marks:[], strokes:[] });
+    }
+    return { frames, blurb:
+      'Single-linkage agglomeration, one merge per frame. Colour spreads outward from '
+      + 'wherever the first pair happened to be closest. The dendrogram is the artefact.' };
+  }},
+
+  severance: { build(r){
+    const { pts } = blobs(r, 3);
+    const pos = pts.map(p=>p.slice());
+    const inTree = [0], rest = pts.map((_,i)=>i).slice(1), tree = [];
+    while(rest.length){                                     // Prim
+      let bi=0, bj=0, bd=Infinity;
+      inTree.forEach(a => rest.forEach((b,ri) => {
+        const d = d2(pts[a],pts[b]); if(d<bd){ bd=d; bi=a; bj=ri; } }));
+      tree.push([bi, rest[bj], bd]); inTree.push(rest[bj]); rest.splice(bj,1);
+    }
+    const frames = [];
+    tree.forEach((_,n)=> frames.push({ pos:pos.map(p=>p.slice()), group:pts.map(()=>-1),
+      links: tree.slice(0,n+1).map(e=>[e[0],e[1],0]), marks:[], strokes:[] }));
+    const cut = tree.slice().sort((a,b)=>b[2]-a[2]).slice(0,2);   // sever 2 longest
+    const kept = tree.filter(e => !cut.includes(e));
+    const par = pts.map((_,i)=>i), find = x => par[x]===x ? x : (par[x]=find(par[x]));
+    kept.forEach(([a,b]) => { par[find(a)] = find(b); });
+    const roots = [...new Set(pts.map((_,i)=>find(i)))];
+    const group = pts.map((_,i)=>roots.indexOf(find(i)));
+    const world = mean(pos);
+    for(let s=0;s<14;s++){                                  // components drift apart
+      const cs = {};
+      group.forEach((g,i)=>{ (cs[g] = cs[g] || []).push(pos[i]); });
+      pos.forEach((p,i)=>{ const c = mean(cs[group[i]]);
+        p[0] += (c[0]-world[0])*.012; p[1] += (c[1]-world[1])*.012; });
+      frames.push({ pos:pos.map(p=>p.slice()), group,
+        links: kept.map(e=>[e[0],e[1],0]), marks:[],
+        strokes: Object.values(cs).map(g => outline(g)).filter(Boolean) });
+    }
+    return { frames, blurb:
+      'A minimum spanning tree crawls across every point, then the two longest edges '
+      + 'are severed and the pieces recoil. Clustering as an act of cutting.' };
+  }},
+
+  repel: { build(r){
+    const { label, cen, k } = blobs(r, 3);
+    const pos = Array.from({length:N},()=>[.15+r()*.70, .15+r()*.70]);
+    const frames = [{ pos:pos.map(p=>p.slice()), group:label.map(()=>-1),
+                      links:[], marks:[], strokes:[] }];
+    for(let s=0; s<52; s++){
+      const f = pos.map(()=>[0,0]);
+      pos.forEach((p,i)=>{
+        const c = cen[label[i]];
+        f[i][0] += (c[0]-p[0])*.055; f[i][1] += (c[1]-p[1])*.055;
+        pos.forEach((q,j)=>{ if(i===j || label[i]===label[j]) return;
+          const d = Math.max(d2(p,q), .002), push = .00055/d;
+          f[i][0] += (p[0]-q[0])*push; f[i][1] += (p[1]-q[1])*push; });
+      });
+      pos.forEach((p,i)=>{ p[0] = clamp(p[0]+f[i][0], .06, .94);
+                           p[1] = clamp(p[1]+f[i][1], .06, .94); });
+      const reveal = s > 14;
+      const cs = {};
+      if(reveal) label.forEach((g,i)=>{ (cs[g] = cs[g] || []).push(pos[i]); });
+      frames.push({ pos:pos.map(p=>p.slice()),
+        group: reveal ? label : label.map(()=>-1),
+        links: [], marks: [],
+        strokes: s > 34 ? Object.values(cs).map(g=>outline(g)).filter(Boolean) : [] });
+    }
+    return { frames, blurb:
+      'Attraction to a hidden label, repulsion from everything unlike it. Structure is '
+      + 'not found here, it is grown — which is roughly what a projection does to you.' };
+  }},
+
+  orbit: { live:true, build(r){
+    const k = 2 + ((r()*2)|0);
+    const { label, cen } = blobs(r, k);
+    const orb = label.map((l,i)=>({ l, rad: .05 + (i%4)*.024 + r()*.02,
+      ph: r()*TAU, sp: (r()<.5?-1:1)*(.5 + r()*.7)/(1 + (i%4)*.35) }));
+    const at = t => orb.map(o => [cen[o.l][0] + o.rad*Math.cos(o.ph + t*o.sp)*1.05,
+                                  cen[o.l][1] + o.rad*Math.sin(o.ph + t*o.sp)]);
+    const frames = [{ pos:at(0), group:label.map(()=>-1), links:[], marks:cen, strokes:[] }];
+    for(let c=0; c<k; c++){                              // systems resolve one by one
+      const g = label.map(l => l<=c ? l : -1);
+      frames.push({ pos:at(0), group:g, marks:cen, strokes:[],
+                    links: g.map((l,i)=>[i,l,1]).filter(([,l])=>l>=0) });
+    }
+    return { frames, at, blurb:
+      'Each cluster is a little system, and it keeps turning after progress hits 100%. '
+      + 'The only variant that still moves at rest — useful when done means "handed off".' };
+  }},
+
+  islands: { build(r){
+    const { pts, label, k } = blobs(r, 3);
+    const pos = pts.map(p=>p.slice()), frames = [];
+    for(let s=0; s<22; s++){
+      const cs = {};
+      label.forEach((g,i)=>{ (cs[g] = cs[g] || []).push(pos[i]); });
+      pos.forEach((p,i)=>{ const c = mean(cs[label[i]]);
+        p[0] = lerp(p[0], c[0], .012); p[1] = lerp(p[1], c[1], .012); });
+      const links = [];
+      for(let i=0;i<N;i++){
+        const near = pos.map((q,j)=>[j,q]).filter(([j])=>label[j]===label[i] && j!==i)
+          .sort((a,b)=>d2(pos[i],a[1])-d2(pos[i],b[1])).slice(0,2);
+        near.forEach(([j])=>{ if(i<j) links.push([i,j,0]); });
+      }
+      frames.push({ pos:pos.map(p=>p.slice()),
+        group: s > 3 ? label : label.map(()=>-1), links,
+        marks: s > 6 ? Object.values(cs).map(mean) : [],
+        strokes: s > 10 ? Object.values(cs).map(g=>outline(g,1.18)).filter(Boolean) : [] });
+    }
+    return { frames, blurb:
+      'The quiet one. Slow contraction, 2-NN links inside each group, hulls last. '
+      + 'This is the one that survives being 90px wide in a corner of a toolbar.' };
+  }}
+};
+
+/* ================= renderer ================= */
+function clusterSpinner(cv, size, name, seed){
+  const dpr = Math.min(devicePixelRatio||1, 2);
+  cv.width = size*dpr; cv.height = size*dpr;
+  cv.style.width = cv.style.height = size+'px';
+  const ctx = cv.getContext('2d'); ctx.scale(dpr,dpr);
+  const jit = GRID.map((_,i)=>(i*2.399)%TAU);
+  const S = v => v*size;
+
+  let variant, run, colors, current, manual = 0, auto = false;
+
+  function load(n, sd){
+    current = n; seed = sd;
+    variant = VARIANTS[n];
+    const r = mulberry(seed);
+    run = variant.build(r);
+    colors = shuffle(CLUSTER.slice(), r).map(rgb);
+  }
+  load(name, seed);
+
+  const stone = rgb(STONE), brass = rgb(BRASS);
+  const t0 = performance.now(), CYCLE = 7000;
+
+  function frameAt(u){
+    const F = run.frames, f = u*(F.length-1);
+    const i = Math.min(F.length-1, Math.floor(f)), j = Math.min(F.length-1, i+1);
+    const t = f - i, A = F[i], B = F[j];
+    const pos = A.pos.map((p,n)=>[lerp(p[0],B.pos[n][0],t), lerp(p[1],B.pos[n][1],t)]);
+    const marks = A.marks.length === B.marks.length
+      ? A.marks.map((p,n)=>[lerp(p[0],B.marks[n][0],t), lerp(p[1],B.marks[n][1],t)])
+      : A.marks;
+    const near = t < .5 ? A : B;
+    return { pos, marks, group:near.group, links:near.links, strokes:near.strokes };
+  }
+
+  function draw(now){
+    const p = ((now-t0)%CYCLE)/CYCLE;
+    const m = auto ? (p<.10 ? 0 : p<.62 ? smooth((p-.10)/.52) : p<.86 ? 1
+                    : p<.97 ? 1-smooth((p-.86)/.11) : 0) : manual;
+    const ph = smooth(clamp(m/.28, 0, 1));            // net dissolves
+    const u  = clamp((m-.28)/.72, 0, 1);              // algorithm replays
+    const st = frameAt(u);
+    if(run.at) st.pos = run.at((now-t0)/900);          // live variants never stop
+
+    ctx.clearRect(0,0,size,size);
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const P = st.pos.map((t2,i)=>[S(lerp(GRID[i][0], t2[0], ph)),
+                                  S(lerp(GRID[i][1], t2[1], ph))]);
+    const M = st.marks.map(q=>[S(q[0]), S(q[1])]);
+    const hue = i => st.group[i] < 0 ? stone : colors[st.group[i] % colors.length];
+
+    st.strokes.forEach(poly=>{                        // hulls
+      ctx.globalAlpha = ph*.22; ctx.lineWidth = 1;
+      ctx.setLineDash([3,4]);
+      ctx.strokeStyle = mixc(stone, colors[0], .3);
+      ctx.beginPath();
+      poly.forEach((q,i)=> i ? ctx.lineTo(S(q[0]),S(q[1])) : ctx.moveTo(S(q[0]),S(q[1])));
+      ctx.closePath(); ctx.stroke(); ctx.setLineDash([]);
+    });
+
+    ctx.strokeStyle = mixc(brass, stone, .3);          // the net, dissolving
+    NET_EDGES.forEach(([a,b],k)=>{
+      const w = .3 + .7*Math.abs(Math.sin(now/620 + k*1.7));
+      ctx.globalAlpha = ((1-ph)**1.4)*(.10+.28*w); ctx.lineWidth = .4+1.1*w;
+      ctx.beginPath(); ctx.moveTo(P[a][0],P[a][1]); ctx.lineTo(P[b][0],P[b][1]); ctx.stroke();
+    });
+
+    st.links.forEach(([a,b,isMark],k)=>{               // cluster topology
+      const B = isMark ? M[b] : P[b];
+      if(!B) return;
+      const w = .35 + .65*Math.abs(Math.sin(now/700 + k*1.9));
+      ctx.globalAlpha = ph*(isMark ? .10+.16*w : .16+.34*w);
+      ctx.lineWidth = isMark ? .6 : .5+1.1*w;
+      ctx.strokeStyle = mixc(stone, hue(a), .85);
+      ctx.beginPath(); ctx.moveTo(P[a][0],P[a][1]); ctx.lineTo(B[0],B[1]); ctx.stroke();
+    });
+
+    M.forEach((q,i)=>{                                 // centroids
+      ctx.globalAlpha = ph*.8; ctx.lineWidth = 1.2;
+      ctx.strokeStyle = mixc(stone, colors[i%colors.length], .9);
+      ctx.beginPath(); ctx.arc(q[0], q[1], 3.4+.9*Math.sin(now/430+i), 0, TAU); ctx.stroke();
+    });
+
+    P.forEach((q,i)=>{                                 // the points
+      const a = .5 + .5*Math.sin(now/500 + jit[i]);
+      ctx.globalAlpha = .5 + .5*a;
+      ctx.fillStyle = mixc(stone, hue(i), ph);
+      ctx.beginPath(); ctx.arc(q[0], q[1], 1.8+1.2*a, 0, TAU); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  return {
+    load, get seed(){ return seed; }, get blurb(){ return run.blurb; },
+    reroll(){ load(current, (Math.random()*1e6)|0); return seed; },
+    set progress(v){ manual = clamp(v,0,1); },
+    set auto(v){ auto = !!v; }
+  };
+}
+
+/* ================= page ================= */
+const big = clusterSpinner(document.getElementById('big'), 250, 'lloyd', 4211);
+const prog = document.getElementById('prog'), read = document.getElementById('read');
+const seedEl = document.getElementById('seed'), blurb = document.getElementById('blurb');
+let current = 'lloyd';
+
+function sync(){
+  seedEl.textContent = 'seed ' + big.seed;
+  blurb.textContent = big.blurb;
+}
+Object.keys(VARIANTS).forEach(name=>{
+  const b = document.createElement('button');
+  b.textContent = name; b.setAttribute('aria-pressed', name===current);
+  b.onclick = () => { current = name; big.load(name, (Math.random()*1e6)|0); sync();
+    document.querySelectorAll('#chips button')
+      .forEach(x=>x.setAttribute('aria-pressed', x.textContent===name)); };
+  document.getElementById('chips').appendChild(b);
+});
+sync();
+prog.oninput = () => { big.progress = +prog.value;
+                       read.textContent = Math.round(prog.value*100)+'%'; };
+document.getElementById('auto').onchange = e => {
+  big.auto = e.target.checked; prog.disabled = e.target.checked; };
+document.getElementById('reroll').onclick = () => { big.reroll(); sync(); };
+
+Object.keys(VARIANTS).forEach(name=>{
+  const cell = document.createElement('div'); cell.className = 'cell';
+  const cv = document.createElement('canvas');
+  const label = document.createElement('span'); label.textContent = name;
+  const sd = document.createElement('em');
+  cell.append(cv, label, sd);
+  document.getElementById('grid').appendChild(cell);
+  const s = clusterSpinner(cv, 116, name, (Math.random()*1e6)|0);
+  s.auto = true; sd.textContent = 'seed ' + s.seed;
+  cv.onclick = () => { sd.textContent = 'seed ' + s.reroll(); };
+});
+</script>
+</body>
+</html>
