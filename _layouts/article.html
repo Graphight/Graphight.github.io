@@ -1,6 +1,14 @@
 ---
 layout: default
 ---
+<header class="band">
+    <div class="band-inner">
+        {%- assign day = page.date | date: "%Y-%m-%d" %}
+        <p class="band-meta"><time datetime="{{ day }}">{{ day }}</time> · {{ page.author | escape }}</p>
+        <h1>{{ page.title | escape }}</h1>
+    </div>
+</header>
+
 <div class="column">
 {{ content }}
 

@@ -99,6 +99,19 @@ th { background: var(--surf); color: var(--hi); }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .column { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
 
+.band { background: var(--surf); border-bottom: 1px solid var(--line); }
+.band-inner {
+  max-width: 720px;
+  min-height: 200px;
+  margin: 0 auto;
+  padding: 40px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
+.band + .column > p:first-child { font-size: 22px; }
+
 .notice {
   margin: 0;
   padding: 6px 24px;
