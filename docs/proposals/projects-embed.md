@@ -20,6 +20,7 @@ First guesses, each to be checked on a phone and a laptop.
 - **It and the iframe it becomes keep a 540 : 380 aspect ratio at 100 % of the column.**
 - **The label is in sage on the background colour**, like the canvas's card.
 - **The itch.io link card is replaced by a plain link** to the game's page and to its repository.
+- **The "Under reconstruction" banner comes down** if this is the last refresh PR: the `.notice` paragraph in `_layouts/default.html` and its rule in `assets/css/site.scss`.
 
 ## Alternatives considered
 - **Loading the iframe on page load.** It pulls in the game for every visitor to the projects page.
