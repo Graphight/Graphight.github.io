@@ -29,6 +29,8 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
 - **A spine runs down the left, and work done alongside Ströer branches off it**: the MSc and both Pyper Vision contracts carry `side: true`.
   Each `side` row gets its own curved offshoot from the spine to a `ty` dot; main rows sit on the spine with a `kw` dot.
   The spine is a background gradient on each row, so a row that opens stretches its own segment.
+- **An entry with `note` is a milestone, not a role**: one mono line on the spine with a small solid `kw` dot, and nothing to open.
+  "Moved to Boston, MA" (Nov 2025) is the only one; it sits in the five months between Ströer and Sprout, and it shows where the place on each row changes from Christchurch to Boston.
 - **The Resume page puts the PDF link first and the timeline under it.**
 - **About has no timeline**; its Career and Academia prose is unchanged apart from the Ströer date.
 
