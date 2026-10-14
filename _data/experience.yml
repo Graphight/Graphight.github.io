@@ -11,6 +11,9 @@
     - "Audited the evaluation framework's datasets against live agent behaviour after tool-schema drift, surfacing three production agent defects (result ordering, chart-type nondeterminism, and relative-date resolution), each reported to the owning squad with trace spans to reproduce"
     - "Redesigned production ML service alerting: root-caused a flapping latency monitor to pod-roll noise rather than client impact, rewrote it as p95 with hysteresis gated on downstream queue backlog, and replaced 12 monitors generating ~90 pages/day with two notify-only ones"
 
+- note: Moved to Boston, MA
+  start: Nov 2025
+
 - org: Pyper Vision
   title: Founding Machine Learning Engineer (Contract 2, part-time)
   side: true

@@ -1,5 +1,9 @@
 <ol class="timeline">
 {%- for role in site.data.experience %}
+{%- if role.note %}
+<li class="note"><span class="when">{{ role.start }} · {{ role.note }}</span></li>
+{%- continue %}
+{%- endif %}
 {%- capture head %}
 <span class="when">{{ role.start }} – {{ role.end }}</span>
 <span class="what">{{ role.title }} · {% if role.link %}<a href="{{ role.link }}">{{ role.org }}</a>{% else %}{{ role.org }}{% endif %}</span>
