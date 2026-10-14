@@ -167,7 +167,7 @@ th { background: var(--surf); color: var(--hi); }
   background: var(--bg);
 }
 .timeline > li.side::before { left: 22px; border-color: var(--ty); }
-.timeline > li.note::before { top: 19px; left: 4px; width: 8px; height: 8px; border: 0; background: var(--kw); }
+.timeline > li.note::before { top: 19px; left: 4px; width: 8px; height: 8px; border: 0; background: var(--mute); }
 .timeline > li.side::after {
   content: "";
   position: absolute;
