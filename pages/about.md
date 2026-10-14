@@ -9,8 +9,6 @@ I am a Machine Learning Engineer with 8 years of experience building production 
 I have a Physics background and a track record of measurable business impact including foundational tech for a startup. 
 Boston is full of bright people and I am always down to meet them.
 
-{% include timeline.html %}
-
 ## Career
 
 From February 2018 to November 2025 my main employer was ***Ströer Labs NZ***, a European AdTech company.  
