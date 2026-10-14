@@ -97,6 +97,18 @@ th { background: var(--surf); color: var(--hi); }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .column { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
 
+.notice {
+  margin: 0;
+  padding: 6px 24px;
+  background: var(--surf);
+  border-bottom: 1px solid var(--line);
+  color: var(--hi);
+  font: 13px/1.5 $mono;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .site-header { border-bottom: 1px solid var(--line); }
 .site-header .wrap {
   display: flex;
