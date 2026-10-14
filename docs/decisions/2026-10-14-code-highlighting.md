@@ -18,12 +18,12 @@ The built articles hold three Python blocks and one plaintext block, the directo
 - **One partial, `_sass/_syntax.scss`**, imported at the end of `assets/css/site.scss`.
   Keywords (`.k .kd .kn .kp .kr .kv .ow`) are `kw`; functions and builtins (`.nf .fm .nb`) `fn`; types (`.nc .kt .bp`) `ty`; strings `str`; numbers and constants (`.m*`, `.il .kc .no`) `con`; decorators (`.nd`) `dec`; comments `mute` in italic; operators (`.o`) `op`.
   Punctuation and plain names stay `fg`.
-- **A code block is always dark.** `div.highlighter-rouge` applies the `dark` mixin, so the block's custom properties take their dark values on a light page and every token follows.
-  Inline code is `code.highlighter-rouge`, not a `div`, so it keeps following the page mode.
-- **A tab above the block names the language**, in mono `mute` on `surf`, joined to the block by squaring its top-left corner.
+- **A code block is always dark.** `div.highlighter-rouge` applies the `dark` mixin, so the block's custom properties, and every token colour read from them, take their dark values on a light page.
+  Inline code is `code.highlighter-rouge`, not a `div`, so it keeps the page mode's terra cotta (`tag`) on `surf` from `own-theme`.
+- **A tab above the block carries the language name**, in mono `mute` on `surf`, joined to the block by squaring its top-left corner.
   The tab is drawn inside the dark scope; a bare label would be dark-mode `mute` on the light page, about 2:1.
-  CSS cannot read a class name into `content`, so the languages are a Sass list, one entry each; today it holds `python`, and plaintext blocks have no tab.
-- **Inline code is terra cotta (`tag`) on `surf`**, as `own-theme` already set it.
+  CSS cannot read a class name into `content`, so the languages are a Sass list; today it holds `python`, and plaintext blocks have no tab.
+- **Comments are JetBrains Mono's real italic**, loaded with the `ital` axis, not a slant the browser synthesises from the roman.
 
 ## Contrast
 WCAG ratios for each token on the block's dark `surf` (`#221c15`); all meet AAA (7:1).
@@ -48,7 +48,7 @@ WCAG ratios for each token on the block's dark `surf` (`#221c15`); all meet AAA 
 
 ## Consequences & open questions
 - Rouge 3.30's Python lexer emits `@dataclass` as an operator `@` (`o`) and a name (`n`), and `@classmethod` as `o` and a builtin (`nb`); its `Name::Decorator` rule is never reached.
-  So decorators show an orange `@`, not gold, and the `.nd` rule waits on a lexer that emits it.
+  So decorators show an orange `@`, not gold, and the `.nd` rule applies only to lexers that emit `nd`.
 - A new language in an article needs its name added to the list in `_syntax.scss` before its block gets a tab.
 - A filename in the label needs a per-block attribute (kramdown's `{: data-file="…"}`), which nothing sets.
 - Line numbers are not built.
