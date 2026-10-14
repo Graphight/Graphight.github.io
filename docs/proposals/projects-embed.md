@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Created: 2026-10-14
-- Reflects: `pages/projects.md`, read at `29cacb4`; the projects card on the Field home board of the design canvas (link in the theme proposal); not built
+- Reflects: `pages/projects.md`, read at `29cacb4`; the projects card on the Field home board of the design canvas (link in decision `own-theme`); not built
 
 ## Summary
 The Space Probe embed scales to its column, and keeps loading only on a click.

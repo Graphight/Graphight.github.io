@@ -2,7 +2,7 @@
 
 - Status: Draft
 - Created: 2026-10-14
-- Reflects: `docs/pages/clusters.html`, a study of six clustering animations drawn in an earlier Claude session; the Field boards of the design canvas drawn on 2026-10-14, where its severance and orbit variants were ported to a hero, watched and retimed by eye over four rounds (link in the theme proposal); not built, and nothing measured
+- Reflects: `docs/pages/clusters.html`, a study of six clustering animations drawn in an earlier Claude session; the Field boards of the design canvas drawn on 2026-10-14, where its severance and orbit variants were ported to a hero, watched and retimed by eye over four rounds (link in decision `own-theme`); not built, and nothing measured
 
 ## Summary
 Behind the home page's name, a small neural net dissolves into points that are clustered by one of two animations, then plays back to the net; the two alternate each loop.
