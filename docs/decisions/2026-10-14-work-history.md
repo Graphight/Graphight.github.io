@@ -18,7 +18,7 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
 - **One entry per role or degree**, newest first: `org`, `title`, `start`, `end`, `place`, `line`, and an optional `link`.
 - **Dates are display strings** ("Apr 2026", "Present"), and file order is display order, so nothing parses a date.
 - **Pyper Vision is two rows**, one per contract, because the contracts are a year apart.
-- **`line` is written by Tom**, and every `line` is empty at merge; the include renders a `line` only when it is set, so an empty one leaves no gap.
+- **`line` is written by Tom**; the include renders a `line` only when it is set, so an empty one leaves no gap.
 - **The timeline is an `<ol class="timeline">`**: dates in mono `mute`, title and organisation in `hi`, place in `mute`, a `line`-coloured rule between rows.
   Each row is a column of spans, so a phone needs no separate layout.
 - **About shows the timeline under its intro paragraph**; its Career and Academia prose stays below, unchanged apart from the Ströer date.
@@ -31,7 +31,6 @@ The proposal said the PDF predated Sprout; the committed PDF already lists Sprou
 - **Pyper Vision as one row.** It would show Jul 2024 – Nov 2025 and imply a continuous contract.
 
 ## Consequences & open questions
-- Every `line` is still to be written.
 - The PDF still has to be updated by hand when the data file changes.
 - No entry has a `link` yet.
 - The home page timeline is proposal `home-page`, which reads this file.
