@@ -11,7 +11,7 @@ Boston is full of bright people and I am always down to meet them.
 
 ## Career
 
-From February 2018 to October 2025 my main employer was ***Ströer Labs NZ***, a European AdTech company.  
+From February 2018 to November 2025 my main employer was ***Ströer Labs NZ***, a European AdTech company.  
 I started working for Ströer as a Java-based Software Engineer before being given the opportunity to help start a data team for our New Zealand branch.
 I taught myself entire fields and technologies as needed, delivering projects that increased revenue by tens of millions of Euros annually while cutting cloud costs by tens of thousands per month.
 This gave me versatile experience across the data spectrum; from Data Engineering, through Analytics and Modelling, to Machine Learning Operations.
