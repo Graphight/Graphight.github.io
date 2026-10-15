@@ -170,18 +170,6 @@ $hero-band: 220px;
   font-size: 16px;
 }
 
-.notice {
-  margin: 0;
-  padding: 6px 24px;
-  background: var(--surf);
-  border-bottom: 1px solid var(--line);
-  color: var(--hi);
-  font: 13px/1.5 $mono;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
 .site-header {
   position: sticky;
   top: 0;
