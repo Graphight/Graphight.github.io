@@ -14,11 +14,12 @@ layout: default
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap stats-section">
+  <p class="kicker">What my work delivered</p>
   <dl class="stats">
-    <div><dt>€15M+</dt><dd>added annual revenue</dd></div>
-    <div><dt>$200K+</dt><dd>yearly egress savings</dd></div>
-    <div><dt>0 → 1</dt><dd>for Pyper Vision</dd></div>
+    <div><dt>€15M+</dt><dd>yearly revenue added for Ströer by faster ad rendering</dd></div>
+    <div><dt>$200K+</dt><dd>cut from Ströer's yearly cloud egress costs</dd></div>
+    <div><dt>0 → 1</dt><dd>Pyper Vision's ML platform, built as its sole ML engineer</dd></div>
   </dl>
 </section>
 

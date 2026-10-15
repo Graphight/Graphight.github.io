@@ -144,9 +144,10 @@ th { background: var(--surf); color: var(--hi); }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
   margin: 0;
-  padding: 40px 0;
+  padding: 0 0 40px;
   border-bottom: 1px solid var(--line);
 }
+.stats-section { padding-top: 40px; }
 .stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $display; color: var(--hi); }
 .stats dd { margin: 6px 0 0; font: 14px/1.5 $mono; color: var(--mute); }
 
