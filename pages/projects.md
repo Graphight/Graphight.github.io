@@ -22,4 +22,16 @@ I set the scope deliberately small so that I could actually ship a "complete" ga
 This was achieved in a little under a month of work so I am pretty proud of myself. 
 If you want to check out the code, I have made the repo public, [https://github.com/Graphight/space-probe](https://github.com/Graphight/space-probe).
 
+## VS-Siding
+
+<!-- Tom: blurb. The repo's description: "A Vintage Story mod that replaces one-block-thick solid walls with thin, layered walls: a framing material, an infill material, and a finish for each face." -->
+
+[github.com/Graphight/VS-Siding](https://github.com/Graphight/VS-Siding)
+
+## GD-SurvivalRts
+
+Work in progress; the repository is private for now.
+
+<!-- Tom: blurb -->
+
 &nbsp;
