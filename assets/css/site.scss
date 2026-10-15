@@ -170,18 +170,6 @@ $hero-band: 220px;
   font-size: 16px;
 }
 
-.notice {
-  margin: 0;
-  padding: 6px 24px;
-  background: var(--surf);
-  border-bottom: 1px solid var(--line);
-  color: var(--hi);
-  font: 13px/1.5 $mono;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -268,5 +256,8 @@ $hero-band: 220px;
 .timeline .line { margin-top: 4px; }
 .timeline ul { margin: 12px 0 0; padding-left: 1.2em; font-size: 17px; }
 .timeline ul li + li { margin-top: 6px; }
+
+.embed { display: block; width: 100%; aspect-ratio: 540 / 380; border: 1px solid var(--line); background: var(--bg); }
+button.embed { font: 18px/1.5 $mono; color: var(--str); cursor: pointer; }
 
 @import "syntax";
