@@ -185,6 +185,7 @@ $hero-band: 220px;
   padding-bottom: 12px;
 }
 .site-name { font-weight: 700; font-size: 20px; color: var(--hi); }
+.site-name[aria-current="page"] { color: var(--kw); }
 .site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; font-size: 16px; }
 .site-nav a { color: var(--fg); }
 .site-nav a[aria-current="page"] { color: var(--kw); font-weight: 700; }

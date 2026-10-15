@@ -18,7 +18,7 @@
 
 <header class="site-header">
     <div class="wrap">
-        <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <a class="site-name" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>{{ site.title }}</a>
         {% include navigation.html %}
     </div>
 </header>
