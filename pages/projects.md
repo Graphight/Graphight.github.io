@@ -13,11 +13,7 @@ More are coming in the future.
 A small strategy game built in Godot Engine while between jobs. 
 Manage resources, explore the galaxy, and fight off opposing Von Neumann probe fleets.
 
-<div id="space-probe-container">
-  <div id="space-probe-placeholder" onclick="document.getElementById('space-probe-placeholder').outerHTML='<iframe frameborder=\'0\' src=\'https://itch.io/embed-upload/16448212?color=000000\' allowfullscreen width=\'540\' height=\'380\'></iframe>'" style="width:540px; height:380px; background:#000; display:flex; align-items:center; justify-content:center; cursor:pointer; border:1px solid #333;">
-    <span style="color:#45fd1c; font-size:18px;">Click to Load Game</span>
-  </div>
-</div>
+<button class="embed" type="button" onclick="this.outerHTML='<iframe class=\'embed\' title=\'Space Probe\' src=\'https://itch.io/embed-upload/16448212?color=000000\' allowfullscreen></iframe>'">Click to load game</button>
 
 If the embedded game isn't playing nice with your browser, play it directly on Itch.io using the following
 
