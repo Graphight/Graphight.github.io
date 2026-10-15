@@ -114,17 +114,28 @@ th { background: var(--surf); color: var(--hi); }
 .band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
 .band + .column > p:first-child { font-size: 22px; }
 
-.hero { border-bottom: 1px solid var(--line); }
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+$hero-band: 220px;
+.hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: $hero-band; }
+.hero-caption { position: absolute; z-index: 1; right: 24px; top: $hero-band - 32px; padding: 0; border: 0; background: none; font: 13px/1.5 $mono; color: var(--mute); cursor: pointer; }
+.hero-caption:hover { color: var(--kw); }
 .hero .wrap {
+  position: relative;
   min-height: 580px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 64px;
+  padding-top: $hero-band + 16px;
   padding-bottom: 64px;
+}
+@media (min-width: 720px) {
+  .hero-canvas { left: auto; right: 0; width: 57%; height: 100%; }
+  .hero-caption { top: auto; bottom: 16px; }
+  .hero .wrap { padding-top: 64px; }
 }
 .hero h1 { font-size: clamp(56px, 12vw, 128px); margin: 0 0 0.2em; }
 .kicker { margin: 0 0 16px; font: 14px/1.5 $mono; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase; }
+.hero h1, .hero .kicker, .hero .lede { text-shadow: 0 0 12px var(--bg), 0 0 24px var(--bg); }
 .lede { max-width: 38em; margin: 0; font-size: 21px; }
 
 .stats {
