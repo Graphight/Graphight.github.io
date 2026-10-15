@@ -6,9 +6,11 @@ layout: page
 
 ## Articles
 
-**2026-03-07** - [ML Systems Resource Guide](../articles/2026-03-07_MLSystemsResourceGuide.md)
+{% assign articles = site.pages | where: "layout", "article" | sort: "date" | reverse %}
+{%- for a in articles %}
+**{{ a.date | date: "%Y-%m-%d" }}** - [{{ a.title }}]({{ a.url | relative_url }})
 
-**2025-12-10** - [MLEs, Bundle your column names](../articles/2025-12-10_BundleYourColumnNames.md)
+{% endfor %}
 
 ## Publications
 
