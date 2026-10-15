@@ -1,0 +1,58 @@
+# Warm Burnout (warmburnout.com), retuned; feeds assets/css/site.scss and pages/colours.md.
+# Text colours keep 4.5:1 against bg; graphic-only colours keep 3:1.
+- name: bg
+  use: Page background
+  light: "#f5ede0"
+  dark: "#1a1510"
+- name: surf
+  use: Bands, code blocks, table headers
+  light: "#ebe1d0"
+  dark: "#221c15"
+- name: line
+  use: Borders, rules, timeline spine
+  light: "#d6c8b2"
+  dark: "#3a3027"
+- name: fg
+  use: Body text
+  light: "#3a3630"
+  dark: "#bfbdb6"
+- name: hi
+  use: Headings, emphasis
+  light: "#1f1b16"
+  dark: "#ece6da"
+- name: mute
+  use: Captions, comments
+  light: "#544c40"
+  dark: "#b4a89c"
+- name: kw
+  use: Links, timeline dots, keywords
+  light: "#a05001"
+  dark: "#fe9d4a"
+- name: fn
+  use: Dark-mode kickers, functions
+  light: "#ad7c0e"
+  dark: "#f5c25f"
+- name: str
+  use: Strings, simulation clusters
+  light: "#55802a"
+  dark: "#a5c977"
+- name: ty
+  use: Dates, side-job dots, types
+  light: "#286a90"
+  dark: "#79b6de"
+- name: con
+  use: Light-mode kickers, numbers
+  light: "#983f6b"
+  dark: "#dd95b4"
+- name: tag
+  use: Inline code
+  light: "#a43b38"
+  dark: "#df7378"
+- name: dec
+  use: Simulation network, decorators
+  light: "#8c7129"
+  dark: "#d8c288"
+- name: op
+  use: Operators
+  light: "#cd6a39"
+  dark: "#eb9070"

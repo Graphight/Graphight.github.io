@@ -1,40 +1,20 @@
 ---
 ---
 
-// Warm Burnout palette (warmburnout.com); surf, line and hi are derived.
+// Colours live in _data/palette.yml.
 @mixin light {
-  --bg: #f5ede0;
-  --surf: #ebe1d0;
-  --line: #d6c8b2;
-  --fg: #3a3630;
-  --hi: #1f1b16;
-  --mute: #544c40;
-  --kw: #924800;
-  --fn: #855700;
-  --str: #4d5c1a;
-  --ty: #285464;
-  --con: #7e4060;
-  --tag: #8e4632;
-  --dec: #7a5a1c;
-  --op: #8f4418;
+{%- for c in site.data.palette %}
+  --{{ c.name }}: {{ c.light }};
+{%- endfor %}
+  --kicker: var(--con);
   color-scheme: light;
 }
 
 @mixin dark {
-  --bg: #1a1510;
-  --surf: #221c15;
-  --line: #3a3027;
-  --fg: #bfbdb6;
-  --hi: #ece6da;
-  --mute: #b4a89c;
-  --kw: #ff8f40;
-  --fn: #ffb454;
-  --str: #b4bc78;
-  --ty: #90aec0;
-  --con: #d4a8b8;
-  --tag: #dc9e92;
-  --dec: #e6c08a;
-  --op: #f29668;
+{%- for c in site.data.palette %}
+  --{{ c.name }}: {{ c.dark }};
+{%- endfor %}
+  --kicker: var(--fn);
   color-scheme: dark;
 }
 
@@ -44,7 +24,6 @@
 }
 :root[data-theme="dark"] { @include dark; }
 
-$display: "Bricolage Grotesque", system-ui, sans-serif;
 $body: "Atkinson Hyperlegible", system-ui, sans-serif;
 $mono: "JetBrains Mono", ui-monospace, monospace;
 $column: 1024px;
@@ -63,7 +42,6 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: $display;
   font-weight: 700;
   line-height: 1.15;
   color: var(--hi);
@@ -134,7 +112,7 @@ $hero-band: 220px;
   .hero .wrap { padding-top: 64px; }
 }
 .hero h1 { font-size: clamp(56px, 12vw, 128px); margin: 0 0 0.2em; }
-.kicker { margin: 0 0 16px; font: 14px/1.5 $mono; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase; }
+.kicker { margin: 0 0 16px; font: 14px/1.5 $mono; color: var(--kicker); letter-spacing: 0.08em; text-transform: uppercase; }
 .hero h1, .hero .kicker, .hero .lede { text-shadow: 0 0 12px var(--bg), 0 0 24px var(--bg); }
 .lede { max-width: 38em; margin: 0; font-size: 21px; }
 
@@ -147,7 +125,8 @@ $hero-band: 220px;
   border-bottom: 1px solid var(--line);
 }
 .stats-section { padding-top: 40px; }
-.stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $display; color: var(--hi); }
+.stats-section .kicker { color: var(--mute); }
+.stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $body; color: var(--hi); }
 .stats dd { margin: 6px 0 0; font: 14px/1.5 $mono; color: var(--mute); }
 
 .home-section { padding-top: 48px; padding-bottom: 32px; }
@@ -186,7 +165,8 @@ $hero-band: 220px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.site-name { font-family: $display; font-weight: 700; font-size: 20px; color: var(--hi); }
+.site-name { font-weight: 700; font-size: 20px; color: var(--hi); }
+.site-name[aria-current="page"] { color: var(--kw); }
 .site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; font-size: 16px; }
 .site-nav a { color: var(--fg); }
 .site-nav a[aria-current="page"] { color: var(--kw); font-weight: 700; }
@@ -250,14 +230,20 @@ $hero-band: 220px;
 .timeline summary::-webkit-details-marker { display: none; }
 .timeline summary::after { content: "+"; position: absolute; top: 0; right: 0; font: 20px/1.2 $mono; color: var(--kw); }
 .timeline details[open] summary::after { content: "−"; }
-.timeline .when, .entries .when { font: 14px/1.5 $mono; color: var(--mute); }
+.timeline .when, .entries .when { font: 14px/1.5 $mono; color: var(--ty); }
 .timeline .what { color: var(--hi); font-weight: 700; }
 .timeline .where { font-size: 16px; color: var(--mute); }
 .timeline .line { margin-top: 4px; }
 .timeline ul { margin: 12px 0 0; padding-left: 1.2em; font-size: 17px; }
 .timeline ul li + li { margin-top: 6px; }
 
-.embed { display: block; width: 100%; aspect-ratio: 540 / 380; border: 1px solid var(--line); background: var(--bg); }
-button.embed { font: 18px/1.5 $mono; color: var(--str); cursor: pointer; }
+.palette { list-style: none; margin: 2em 0 0; padding: 0; }
+.palette li { display: grid; gap: 8px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 720px) { .palette li { grid-template-columns: 1.2fr 1fr 1fr; align-items: center; } }
+.palette .role { display: flex; flex-direction: column; font-size: 16px; color: var(--mute); }
+.palette .token { font: 700 15px/1.5 $mono; color: var(--hi); }
+.palette .chip { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font: 13px/1.5 $mono; }
+.palette .dot { flex: none; width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.35); }
+.palette .chip b { font: 700 20px/1 $body; }
 
 @import "syntax";
