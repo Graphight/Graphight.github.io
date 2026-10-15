@@ -4,6 +4,7 @@ layout: default
 
 <section class="hero">
   <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <button class="hero-caption" type="button" hidden></button>
   <script src="{{ '/assets/js/hero.js' | relative_url }}" defer></script>
   <div class="wrap">
     <p class="kicker">Machine learning · Physics · Games</p>

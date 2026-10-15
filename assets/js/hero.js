@@ -58,12 +58,13 @@ function blobs(r, k){
   while(label.length < N) label.push(k-1);
   shuffle(label, r);
   const sp = .05 + r()*.03;
-  return label.map(l => [clamp(cen[l][0]+gauss(r)*sp,.07,.93),
-                         clamp(cen[l][1]+gauss(r)*sp,.07,.93)]);
+  const pts = label.map(l => [clamp(cen[l][0]+gauss(r)*sp,.07,.93),
+                              clamp(cen[l][1]+gauss(r)*sp,.07,.93)]);
+  return { pts, label, cen };
 }
 
-function build(seed){
-  const r = mulberry(seed), pts = blobs(r, 3), pos = pts.map(p=>p.slice());
+function severance(r){
+  const { pts } = blobs(r, 3), pos = pts.map(p=>p.slice());
   const inTree = [0], rest = pts.map((_,i)=>i).slice(1), tree = [];
   while(rest.length){
     let bi=0, bj=0, bd=Infinity;
@@ -73,7 +74,7 @@ function build(seed){
   }
   const frames = [];
   tree.forEach((_,n)=> frames.push({ pos:pos.map(p=>p.slice()), group:pts.map(()=>-1),
-    links: tree.slice(0,n+1).map(e=>[e[0],e[1]]), strokes:[] }));
+    links: tree.slice(0,n+1).map(e=>[e[0],e[1]]), marks:[], strokes:[] }));
   const cut = tree.slice().sort((a,b)=>b[2]-a[2]).slice(0,2);
   const kept = tree.filter(e => !cut.includes(e));
   const par = pts.map((_,i)=>i), find = x => par[x]===x ? x : (par[x]=find(par[x]));
@@ -87,17 +88,41 @@ function build(seed){
     pos.forEach((p,i)=>{ const c = mean(cs[group[i]]);
       p[0] += (c[0]-world[0])*.012; p[1] += (c[1]-world[1])*.012; });
     frames.push({ pos:pos.map(p=>p.slice()), group,
-      links: kept.map(e=>[e[0],e[1]]),
+      links: kept.map(e=>[e[0],e[1]]), marks:[],
       strokes: Object.values(cs).map(g => outline(g)).filter(Boolean) });
   }
-  return { frames, order: shuffle([0,1,2,3,4,5,6], r) };
+  return { frames };
+}
+
+function orbit(r){
+  const k = 2 + ((r()*2)|0), { label, cen } = blobs(r, k);
+  const orb = label.map((l,i)=>({ l, rad: .05 + (i%4)*.024 + r()*.02,
+    ph: r()*TAU, sp: (r()<.5?-1:1)*(.5 + r()*.7)/(1 + (i%4)*.35) }));
+  const at = t => orb.map(o => [cen[o.l][0] + o.rad*Math.cos(o.ph + t*o.sp)*1.05,
+                                cen[o.l][1] + o.rad*Math.sin(o.ph + t*o.sp)]);
+  const frames = [{ pos:at(0), group:label.map(()=>-1), links:[], marks:cen, strokes:[] }];
+  for(let c=0; c<k; c++){
+    const g = label.map(l => l<=c ? l : -1);
+    frames.push({ pos:at(0), group:g, marks:cen, strokes:[],
+                  links: g.map((l,i)=>[i,l,1]).filter(([,l])=>l>=0) });
+  }
+  return { frames, at };
+}
+
+const VARIANTS = [['severance', severance], ['orbit', orbit]];
+function build(seed, v){
+  const r = mulberry(seed), run = VARIANTS[v][1](r);
+  run.order = shuffle([0,1,2,3,4,5,6], r);
+  return run;
 }
 
 function frameAt(run, u){
   const F = run.frames, f = u*(F.length-1);
   const i = Math.min(F.length-1, Math.floor(f)), j = Math.min(F.length-1, i+1);
   const t = f - i, A = F[i], B = F[j], near = t < .5 ? A : B;
-  return { pos: A.pos.map((p,n)=>[lerp(p[0],B.pos[n][0],t), lerp(p[1],B.pos[n][1],t)]),
+  const marks = A.marks.length === B.marks.length
+    ? A.marks.map((p,n)=>[lerp(p[0],B.marks[n][0],t), lerp(p[1],B.marks[n][1],t)]) : A.marks;
+  return { pos: A.pos.map((p,n)=>[lerp(p[0],B.pos[n][0],t), lerp(p[1],B.pos[n][1],t)]), marks,
            group:near.group, links:near.links, strokes:near.strokes };
 }
 
@@ -106,7 +131,8 @@ const fwd = x => ({ ph: smooth(clamp(x/2.5,0,1)),
   u: x < 2.5 ? 0 : .5*((x-2.5)/8.5) + .5*smooth((x-2.5)/8.5) });
 const phase = t => t < 11 ? fwd(t) : t < 16 ? fwd(11) : t < 27 ? fwd(11-(t-16)) : fwd(0);
 
-let W = 0, H = 0, dpr = 1, tk, run, loop = -1;
+let W = 0, H = 0, dpr = 1, tk, run, loop = -1, v = 0, start = performance.now();
+const cap = document.querySelector('.hero-caption');
 const jit = GRID.map((_,i)=>(i*2.399)%TAU);
 const CLUSTER = ['--fn','--tag','--ty','--con','--str','--op','--kw'];
 function tokens(){
@@ -121,10 +147,21 @@ function fit(){
   cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
 }
 
+function show(){
+  if(!cap) return;
+  const [name, other] = [VARIANTS[v][0], VARIANTS[1-v][0]];
+  cap.hidden = false; cap.textContent = name;
+  cap.setAttribute('aria-label', `Animation: ${name}. Switch to ${other}`);
+}
+
 function draw(now){
-  const t = now/1000, n = Math.floor(t/LOOP);
-  if(n !== loop){ loop = n; run = build((Math.random()*1e6)|0); }
+  const t = Math.max(0, now-start)/1000, n = Math.floor(t/LOOP);
+  if(n !== loop){
+    if(loop >= 0) v = 1-v;
+    loop = n; run = build((Math.random()*1e6)|0, v); show();
+  }
   const { ph, u } = phase(t % LOOP), st = frameAt(run, u);
+  if(run.at) st.pos = run.at(t/.9);
   const colors = run.order.map(i => tk.cl[i]), stone = tk.stone;
   const side = Math.min(W,H)*.92, ox = (W-side)/2, oy = (H-side)/2, z = clamp(side/250,1,2);
   const P = st.pos.map((q,i) => [ox + lerp(GRID[i][0],q[0],ph)*side,
@@ -150,11 +187,19 @@ function draw(now){
     ctx.beginPath(); ctx.moveTo(P[a][0],P[a][1]); ctx.lineTo(P[b][0],P[b][1]); ctx.stroke();
   });
 
-  st.links.forEach(([a,b],k) => {
+  const M = st.marks.map(q => [ox + q[0]*side, oy + q[1]*side]);
+  st.links.forEach(([a,b,isMark],k) => {
+    const B = isMark ? M[b] : P[b];
     const w = .35 + .65*Math.abs(Math.sin(now/700 + k*1.9));
-    ctx.globalAlpha = ph*(.16+.34*w); ctx.lineWidth = (.5+1.1*w)*z;
+    ctx.globalAlpha = ph*(isMark ? .10+.16*w : .16+.34*w); ctx.lineWidth = (isMark ? .6 : .5+1.1*w)*z;
     ctx.strokeStyle = mixc(stone, hue(a), .85);
-    ctx.beginPath(); ctx.moveTo(P[a][0],P[a][1]); ctx.lineTo(P[b][0],P[b][1]); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(P[a][0],P[a][1]); ctx.lineTo(B[0],B[1]); ctx.stroke();
+  });
+
+  M.forEach((q,i) => {
+    ctx.globalAlpha = ph*.8; ctx.lineWidth = 1.2*z;
+    ctx.strokeStyle = mixc(stone, colors[i%colors.length], .9);
+    ctx.beginPath(); ctx.arc(q[0], q[1], (3.4+.9*Math.sin(now/430+i))*z, 0, TAU); ctx.stroke();
   });
 
   P.forEach(([x,y],i) => {
@@ -167,6 +212,7 @@ function draw(now){
   requestAnimationFrame(draw);
 }
 
+if(cap) cap.addEventListener('click', () => { v = 1-v; start = performance.now(); loop = -1; });
 new ResizeObserver(fit).observe(cv);
 new MutationObserver(tokens).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', tokens);

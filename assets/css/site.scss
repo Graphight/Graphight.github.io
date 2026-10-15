@@ -116,6 +116,9 @@ th { background: var(--surf); color: var(--hi); }
 
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
 .hero-canvas { position: absolute; top: 0; left: 0; right: 0; height: 50%; width: 100%; }
+.hero-caption { position: absolute; z-index: 1; right: 24px; bottom: calc(50% + 8px); padding: 0; border: 0; background: none; font: 13px/1.5 $mono; color: var(--mute); cursor: pointer; }
+.hero-caption:hover { color: var(--kw); }
+@media (min-width: 720px) { .hero-caption { bottom: 16px; } }
 @media (min-width: 720px) { .hero-canvas { top: 0; bottom: 0; left: auto; right: 0; height: auto; width: 57%; } }
 .hero .wrap {
   position: relative;
