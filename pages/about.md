@@ -18,7 +18,7 @@ They were then confident enough to send me over to Europe to learn directly from
 This was invaluable for ironing out my self-taught edges.
 If you know only one thing about adtech, it is probably that there is a lot of data, quite literally terabytes per day.
 This is the dream for anyone trying to build a machine learning product but comes with its own unique challenges.
-Being a Kiwi startup, the number 8 wire mindset was heavily favoured, this meant my time at Ströer Labs NZ was spent digging into the weeds of almost every part of the tech stack.
+Being a Kiwi startup, we heavily favoured the number 8 wire mindset, which meant my time at Ströer Labs NZ was spent digging into the weeds of almost every part of the tech stack.
 If something was not built yet, we were heavily encouraged to get amongst it, learning on the fly.
 This helped mould me into the Machine Learning Engineer I am today by exposing me to fields such as Data Engineering, Software Engineering, DevOps, and Product Management.
 I will be forever grateful for the opportunities I had there and will carry the mindset forward.
