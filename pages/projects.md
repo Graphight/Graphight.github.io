@@ -8,20 +8,25 @@ Side project(s) I've built in my spare time.
 
 More are coming in the future.
 
+## GD-SurvivalRTS - Coming Soon
+
+A 2D co-op survival RTS built in Godot Engine, set in a Norse winter.
+Push fires out into the snow, pay their upkeep in wood, and hold through blizzard after blizzard until Ragnarok.
+
+## VS-Siding - 2026-09-25
+
+A Vintage Story mod for building thin, layered walls and floors instead of stacking full blocks.
+Pick a framing, an infill and a finish for each face, anything from a bone and pelt tent to a weatherboarded house.
+The code is on GitHub at [github.com/Graphight/VS-Siding](https://github.com/Graphight/VS-Siding).
+
 ## Space Probe - 2026-02-18
 
 A small strategy game built in Godot Engine while between jobs. 
 Manage resources, explore the galaxy, and fight off opposing Von Neumann probe fleets.
 
-<div id="space-probe-container">
-  <div id="space-probe-placeholder" onclick="document.getElementById('space-probe-placeholder').outerHTML='<iframe frameborder=\'0\' src=\'https://itch.io/embed-upload/16448212?color=000000\' allowfullscreen width=\'540\' height=\'380\'></iframe>'" style="width:540px; height:380px; background:#000; display:flex; align-items:center; justify-content:center; cursor:pointer; border:1px solid #333;">
-    <span style="color:#45fd1c; font-size:18px;">Click to Load Game</span>
-  </div>
-</div>
+<button class="embed" type="button" onclick="this.outerHTML='<iframe class=\'embed\' title=\'Space Probe\' src=\'https://itch.io/embed-upload/16448212?color=000000\' allowfullscreen></iframe>'">Click to load game</button>
 
-If the embedded game isn't playing nice with your browser, play it directly on Itch.io using the following
-
-<iframe frameborder="0" src="https://itch.io/embed/4268671?linkback=true&amp;bg_color=000000&amp;fg_color=45fd1c&amp;link_color=ffffff&amp;border_color=333333" width="552" height="167"><a href="https://graphight.itch.io/space-probe">Space Probe by Graphight</a></iframe>
+If the embedded game isn't playing nice with your browser, play it directly on [itch.io](https://graphight.itch.io/space-probe).
 
 I made this game while job hunting as something fun to get me through the grind.
 I set the scope deliberately small so that I could actually ship a "complete" game (albeit simple) in a short time frame.
