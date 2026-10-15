@@ -19,18 +19,17 @@ Both ran off a phone's screen.
 - **One `.embed` rule in `assets/css/site.scss`** sets both to 100 % of the column at `aspect-ratio: 540 / 380`, with a `line` border on `bg`.
 - **The label is in sage (`str`) on the background**, in the mono face, like the design canvas's card.
 - **The itch.io link card is gone.** The sentence above it now links to the game's itch.io page; the repository stays linked once, in the closing paragraph.
-- **VS-Siding and GD-SurvivalRts are listed below Space Probe.** VS-Siding links to its repository; GD-SurvivalRts is private and listed as work in progress, with no link or screenshots.
-  Each has a `<!-- Tom: blurb -->` comment where its description goes.
+- **VS-Siding and GD-SurvivalRTS are listed above Space Probe, newest first.** VS-Siding (2026-09-25) links to its repository; GD-SurvivalRTS is private and dated "Coming Soon", with no link or screenshots.
+  Each has a two-line description taken from its repository's README.
 - **The "Under reconstruction" banner is down**: the `.notice` paragraph in `_layouts/default.html` and its rule in `assets/css/site.scss`, since this was the last open proposal of the refresh.
 
 ## Alternatives considered
 - **Loading the iframe on page load.** It pulls in the game for every visitor to the projects page.
 - **A screenshot that links out.** It loses playing the game in place, which is the point of the page.
 - **Linking VS-Siding's mod page as well as its repository.** One link was enough for now.
-- **Screenshots of GD-SurvivalRts.** Left for when there are some worth showing.
+- **Screenshots of GD-SurvivalRTS.** Left for when there are some worth showing.
 
 ## Consequences & open questions
 - Whether the game plays at phone width is a matter for itch.io and Godot; the page only stops the frame overflowing.
 - A screenshot behind the button would say more than a label, and needs one taken.
-- The two new sections have no description until Tom writes them.
 - `docs/proposals/` is empty: the site refresh the proposals described is done.
