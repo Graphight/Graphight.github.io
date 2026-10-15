@@ -147,7 +147,6 @@ th { background: var(--surf); color: var(--hi); }
 @media (min-width: 720px) { .pair { grid-template-columns: 1fr 1fr; } }
 .entries { list-style: none; margin: 0 0 24px; padding: 0; }
 .entries li { display: flex; flex-direction: column; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.entries .when { font: 14px/1.5 $mono; color: var(--mute); }
 .entries a { font-weight: 700; }
 
 .article-end {
@@ -252,7 +251,7 @@ th { background: var(--surf); color: var(--hi); }
 .timeline summary::-webkit-details-marker { display: none; }
 .timeline summary::after { content: "+"; position: absolute; top: 0; right: 0; font: 20px/1.2 $mono; color: var(--kw); }
 .timeline details[open] summary::after { content: "−"; }
-.timeline .when { font: 14px/1.5 $mono; color: var(--mute); }
+.timeline .when, .entries .when { font: 14px/1.5 $mono; color: var(--mute); }
 .timeline .what { color: var(--hi); font-weight: 700; }
 .timeline .where { font-size: 16px; color: var(--mute); }
 .timeline .line { margin-top: 4px; }

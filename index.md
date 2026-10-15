@@ -39,7 +39,7 @@ layout: default
   <section>
     <h2>Projects</h2>
     <ul class="entries">
-      <li><span class="when">2026-02-18 · Godot</span><a href="{{ '/pages/projects' | relative_url }}">Space Probe</a>A small strategy game built in Godot Engine while between jobs.</li>
+      <li><span class="when">2026-02-18</span><a href="{{ '/pages/projects' | relative_url }}">Space Probe</a>A small strategy game built in Godot Engine while between jobs.</li>
     </ul>
     <a href="{{ '/pages/projects' | relative_url }}">All projects →</a>
   </section>
