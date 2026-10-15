@@ -1,40 +1,18 @@
 ---
 ---
 
-// Warm Burnout palette (warmburnout.com); surf, line and hi are derived.
+// Colours live in _data/palette.yml.
 @mixin light {
-  --bg: #f5ede0;
-  --surf: #ebe1d0;
-  --line: #d6c8b2;
-  --fg: #3a3630;
-  --hi: #1f1b16;
-  --mute: #544c40;
-  --kw: #924800;
-  --fn: #855700;
-  --str: #4d5c1a;
-  --ty: #285464;
-  --con: #7e4060;
-  --tag: #8e4632;
-  --dec: #7a5a1c;
-  --op: #8f4418;
+{%- for c in site.data.palette %}
+  --{{ c.name }}: {{ c.light }};
+{%- endfor %}
   color-scheme: light;
 }
 
 @mixin dark {
-  --bg: #1a1510;
-  --surf: #221c15;
-  --line: #3a3027;
-  --fg: #bfbdb6;
-  --hi: #ece6da;
-  --mute: #b4a89c;
-  --kw: #ff8f40;
-  --fn: #ffb454;
-  --str: #b4bc78;
-  --ty: #90aec0;
-  --con: #d4a8b8;
-  --tag: #dc9e92;
-  --dec: #e6c08a;
-  --op: #f29668;
+{%- for c in site.data.palette %}
+  --{{ c.name }}: {{ c.dark }};
+{%- endfor %}
   color-scheme: dark;
 }
 
