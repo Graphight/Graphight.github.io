@@ -114,8 +114,11 @@ th { background: var(--surf); color: var(--hi); }
 .band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
 .band + .column > p:first-child { font-size: 22px; }
 
-.hero { border-bottom: 1px solid var(--line); }
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero-canvas { position: absolute; top: 0; left: 0; right: 0; height: 50%; width: 100%; }
+@media (min-width: 720px) { .hero-canvas { top: 0; bottom: 0; left: auto; right: 0; height: auto; width: 57%; } }
 .hero .wrap {
+  position: relative;
   min-height: 580px;
   display: flex;
   flex-direction: column;
@@ -125,6 +128,7 @@ th { background: var(--surf); color: var(--hi); }
 }
 .hero h1 { font-size: clamp(56px, 12vw, 128px); margin: 0 0 0.2em; }
 .kicker { margin: 0 0 16px; font: 14px/1.5 $mono; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase; }
+.hero h1, .hero .kicker, .hero .lede { text-shadow: 0 0 12px var(--bg), 0 0 24px var(--bg); }
 .lede { max-width: 38em; margin: 0; font-size: 21px; }
 
 .stats {
