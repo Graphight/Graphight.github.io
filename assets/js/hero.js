@@ -131,7 +131,8 @@ const fwd = x => ({ ph: smooth(clamp(x/2.5,0,1)),
   u: x < 2.5 ? 0 : .5*((x-2.5)/8.5) + .5*smooth((x-2.5)/8.5) });
 const phase = t => t < 11 ? fwd(t) : t < 16 ? fwd(11) : t < 27 ? fwd(11-(t-16)) : fwd(0);
 
-let W = 0, H = 0, dpr = 1, tk, run, loop = -1, v = 0, start = performance.now();
+let W = 0, H = 0, dpr = 1, tk, run, loop = -1, v = 0, elapsed = 0, last = 0, raf = 0, vis = true, inView = true;
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cap = document.querySelector('.hero-caption');
 const jit = GRID.map((_,i)=>(i*2.399)%TAU);
 const CLUSTER = ['--fn','--tag','--ty','--con','--str','--op','--kw'];
@@ -154,14 +155,14 @@ function show(){
   cap.setAttribute('aria-label', `Animation: ${name}. Switch to ${other}`);
 }
 
-function draw(now){
-  const t = Math.max(0, now-start)/1000, n = Math.floor(t/LOOP);
+function render(){
+  const now = performance.now(), t = still ? 11 : elapsed, n = Math.floor(t/LOOP);
   if(n !== loop){
     if(loop >= 0) v = 1-v;
     loop = n; run = build((Math.random()*1e6)|0, v); show();
   }
   const { ph, u } = phase(t % LOOP), st = frameAt(run, u);
-  if(run.at) st.pos = run.at(t/.9);
+  if(run.at) st.pos = run.at(still ? 0 : t/.9);
   const colors = run.order.map(i => tk.cl[i]), stone = tk.stone;
   const side = Math.min(W,H)*.92, ox = (W-side)/2, oy = (H-side)/2, z = clamp(side/250,1,2);
   const P = st.pos.map((q,i) => [ox + lerp(GRID[i][0],q[0],ph)*side,
@@ -209,13 +210,26 @@ function draw(now){
     ctx.beginPath(); ctx.arc(x, y, (1.8+1.2*a)*z, 0, TAU); ctx.fill();
   });
   ctx.globalAlpha = 1;
-  requestAnimationFrame(draw);
 }
 
-if(cap) cap.addEventListener('click', () => { v = 1-v; start = performance.now(); loop = -1; });
-new ResizeObserver(fit).observe(cv);
-new MutationObserver(tokens).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change', tokens);
-fit(); tokens();
-requestAnimationFrame(draw);
+function tick(now){
+  elapsed += clamp((now-last)/1000, 0, .1); last = now;
+  render();
+  raf = requestAnimationFrame(tick);
+}
+function sync(){
+  const on = vis && inView && !still;
+  if(on && !raf){ last = performance.now(); raf = requestAnimationFrame(tick); }
+  else if(!on && raf){ cancelAnimationFrame(raf); raf = 0; }
+}
+const refresh = () => { if(!raf) render(); };
+
+if(cap) cap.addEventListener('click', () => { v = 1-v; elapsed = 0; loop = -1; refresh(); });
+new ResizeObserver(() => { fit(); refresh(); }).observe(cv);
+const retoken = () => { tokens(); refresh(); };
+new MutationObserver(retoken).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', retoken);
+new IntersectionObserver(e => { inView = e[e.length-1].isIntersecting; sync(); }, {threshold:0}).observe(cv);
+document.addEventListener('visibilitychange', () => { vis = document.visibilityState === 'visible'; sync(); });
+fit(); tokens(); render(); sync();
 })();
