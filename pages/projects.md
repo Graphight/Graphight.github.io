@@ -24,9 +24,7 @@ The code is on GitHub at [github.com/Graphight/VS-Siding](https://github.com/Gra
 A small strategy game built in Godot Engine while between jobs. 
 Manage resources, explore the galaxy, and fight off opposing Von Neumann probe fleets.
 
-<button class="embed" type="button" onclick="this.outerHTML='<iframe class=\'embed\' title=\'Space Probe\' src=\'https://itch.io/embed-upload/16448212?color=000000\' allowfullscreen></iframe>'">Click to load game</button>
-
-If the embedded game isn't playing nice with your browser, play it directly on [itch.io](https://graphight.itch.io/space-probe).
+Play it on [itch.io](https://graphight.itch.io/space-probe).
 
 I made this game while job hunting as something fun to get me through the grind.
 I set the scope deliberately small so that I could actually ship a "complete" game (albeit simple) in a short time frame.

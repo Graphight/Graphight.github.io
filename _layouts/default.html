@@ -7,7 +7,7 @@
     <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap">
     <link rel="stylesheet" href="{{ '/assets/css/site.css?v=' | append: site.github.build_revision | relative_url }}">
 
     {% seo %}
@@ -18,7 +18,7 @@
 
 <header class="site-header">
     <div class="wrap">
-        <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <a class="site-name" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>{{ site.title }}</a>
         {% include navigation.html %}
     </div>
 </header>
@@ -34,7 +34,7 @@
             <a href="https://www.linkedin.com/in/tom-marsh-3aa764154/">LinkedIn</a>
             <a href="https://graphight.itch.io/">itch.io</a>
         </div>
-        <span>© {{ site.time | date: "%Y" }} {{ site.title }} · Colours: <a href="https://warmburnout.com/">Warm Burnout</a></span>
+        <span>© {{ site.time | date: "%Y" }} {{ site.title }} · <a href="{{ '/pages/colours' | relative_url }}">Colours</a></span>
     </div>
 </footer>
 
