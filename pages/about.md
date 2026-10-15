@@ -18,7 +18,7 @@ They were then confident enough to send me over to Europe to learn directly from
 This was invaluable for ironing out my self-taught edges.
 If you know only one thing about adtech, it is probably that there is a lot of data, quite literally terabytes per day.
 This is the dream for anyone trying to build a machine learning product but comes with its own unique challenges.
-Being a Kiwi startup, we heavily favoured the number 8 wire mindset, which meant my time at Ströer Labs NZ was spent digging into the weeds of almost every part of the tech stack.
+Being a Kiwi startup, we heavily favoured the [number 8 wire](https://en.wikipedia.org/wiki/Number_8_wire) mindset, which meant my time at Ströer Labs NZ was spent digging into the weeds of almost every part of the tech stack.
 If something was not built yet, we were heavily encouraged to get amongst it, learning on the fly.
 This helped mould me into the Machine Learning Engineer I am today by exposing me to fields such as Data Engineering, Software Engineering, DevOps, and Product Management.
 I will be forever grateful for the opportunities I had there and will carry the mindset forward.
@@ -34,7 +34,7 @@ Within weeks of finishing my degree I was approached by Pyper Vision, an aerospa
 I agreed as long as I could keep Ströer as my primary employer.
 This began the journey of many long nights and weekends processing data, building prototypes, and reading research papers.
 Ultimately I was able to deliver a prototype and then a minimally marketable product in around eight months.
-During this time I met many amazing people through the Ministry of Awesome startup incubator and even joined a local philosophy group where I have made lifelong friends (shoutout to the Round Table).
+During this time I met many amazing people through the [Ministry of Awesome](https://ministryofawesome.com/) startup incubator and even joined a local philosophy group where I have made lifelong friends (shoutout to the Round Table).
 I later returned to do another short contract focusing on proving an idea I had during the first contract but did not have time to dedicate to.
 
 After three long years of processing I was finally accepted for a green card in late 2025 and made the move to Boston.
