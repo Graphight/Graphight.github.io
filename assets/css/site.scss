@@ -44,7 +44,6 @@
 }
 :root[data-theme="dark"] { @include dark; }
 
-$display: "Bricolage Grotesque", system-ui, sans-serif;
 $body: "Atkinson Hyperlegible", system-ui, sans-serif;
 $mono: "JetBrains Mono", ui-monospace, monospace;
 $column: 1024px;
@@ -63,7 +62,6 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: $display;
   font-weight: 700;
   line-height: 1.15;
   color: var(--hi);
@@ -147,7 +145,7 @@ $hero-band: 220px;
   border-bottom: 1px solid var(--line);
 }
 .stats-section { padding-top: 40px; }
-.stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $display; color: var(--hi); }
+.stats dt { font: 700 clamp(36px, 5vw, 52px)/1.1 $body; color: var(--hi); }
 .stats dd { margin: 6px 0 0; font: 14px/1.5 $mono; color: var(--mute); }
 
 .home-section { padding-top: 48px; padding-bottom: 32px; }
@@ -186,7 +184,7 @@ $hero-band: 220px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.site-name { font-family: $display; font-weight: 700; font-size: 20px; color: var(--hi); }
+.site-name { font-weight: 700; font-size: 20px; color: var(--hi); }
 .site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; font-size: 16px; }
 .site-nav a { color: var(--fg); }
 .site-nav a[aria-current="page"] { color: var(--kw); font-weight: 700; }
