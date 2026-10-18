@@ -1,12 +1,9 @@
 ---
 layout: article
+title: "Find the variable it tracks"
+date: 2026-08-24
+author: Tom Marsh
 ---
-
-2026-08-24 - Tom Marsh
-
----
-
-# Find the variable it tracks
 
 A GPU inference service climbed at 600 MiB per hour.
 Linearly, all day, from roughly 40% of the card to 55% over about ten hours, and it never levelled off.

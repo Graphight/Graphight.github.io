@@ -1,6 +1,17 @@
-remote_theme: pages-themes/slate@v0.2.0
+theme: null
 plugins:
-  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 title: Tom Marsh
 description: Physics | Machine Learning | Engineering
+url: https://graphight.github.io
+baseurl: ""
+repository: Graphight/Graphight.github.io
+
+exclude:
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/

@@ -4,47 +4,44 @@ layout: page
 
 # About
 
-Originally from Christchurch, New Zealand, after obtaining a US Green Card I moved to Boston, Massachusetts.
-I am a Machine Learning Engineer with 8 years of experience building production systems at TB/PB scale. 
-I have a Physics background and a track record of measurable business impact including foundational tech for a startup. 
-Boston is full of bright people and I am always down to meet them.
+Born and raised in Ōtautahi, Christchurch, I attended the University of Canterbury to study physics and computer science.
+This was where I met my wonderful wife and we have since moved to Boston, Massachusetts together.
 
-## Career
+## How I got here
 
-From February 2018 to October 2025 my main employer was ***Ströer Labs NZ***, a European AdTech company.  
-I started working for Ströer as a Java-based Software Engineer before being given the opportunity to help start a data team for our New Zealand branch.
-I taught myself entire fields and technologies as needed, delivering projects that increased revenue by tens of millions of Euros annually while cutting cloud costs by tens of thousands per month.
-This gave me versatile experience across the data spectrum; from Data Engineering, through Analytics and Modelling, to Machine Learning Operations.
-Building production systems that handle trillions of rows of data annually taught me how to work efficiently with large datasets and solve interesting deployment problems.
-This also gave me plenty of opportunities to work closely and cross-functionally with employees across the global offices.
-Other hats I wore during my time at Ströer included; Software Engineering, mentoring junior members, taking on interns, helping with recruitment, third party business assessment and collaboration, and attending conferences.  
-Our tech stack was hosted on Amazon Web Services (**AWS**) with a large focus on opensource technologies to reduce reliance on first-party solutions.
+I know I am more than my job title but it has been a huge part of my saga so far and the story is best anchored to it.
 
-After completing my MSc, I was sought out by ***Pyper Vision***, an aerospace startup with the goal of eliminating fog disruptions at airports.
-They offered me some contracting work to do alongside my work at Ströer and I happily accepted the challenge to apply my technical skills to a new industry.
-The first contract involved helping them transition from a hardware company to a software one by building a fog forecasting product.
-I enjoyed working closely with their founding team to shape the path of their company.
-We chose to host their tech stack on Google Cloud Platform (**GCP**) with an emphasis on platform-agnostic technologies to lessen the vendor-locking risk down the line. 
-I was able to build them a commercially competitive solution within 8 months.
-Pyper Vision was able to successfully launch this product and achieve a valuation in the tens of millions. 
-After several months building their team they reached out to me again for a second contract to build a fog type classifier.
-This project involved taking inspiration from recent meteorological research papers and adapting them to our data and pipelines.
-I was able to complete this contract in 4 weeks. 
+My first professional tech role started in 2018 as a Java Engineer for an adtech startup that had recently been acquired by a European company, Ströer.
+Not long after starting (about 6 months) the CEO approached me and asked if I would be keen to be one of the first Data Scientists for our NZ branch due to my background in mathematics.
+I jumped at the chance and spent the next 6 months grinding textbooks, online courses, and projects.
+They were then confident enough to send me over to Europe to learn directly from one of the other acquired startups that focused on Data Science and Machine Learning.
+This was invaluable for ironing out my self-taught edges.
+If you know only one thing about adtech, it is probably that there is a lot of data, quite literally terabytes per day.
+This is the dream for anyone trying to build a machine learning product but comes with its own unique challenges.
+Being a Kiwi startup, we heavily favoured the [number 8 wire](https://en.wikipedia.org/wiki/Number_8_wire) mindset, which meant my time at Ströer Labs NZ was spent digging into the weeds of almost every part of the tech stack.
+If something was not built yet, we were heavily encouraged to get amongst it, learning on the fly.
+This helped mould me into the Machine Learning Engineer I am today by exposing me to fields such as Data Engineering, Software Engineering, DevOps, and Product Management.
+I will be forever grateful for the opportunities I had there and will carry the mindset forward.
 
-Building Pyper Vision's foundational tech proved I could apply large-scale ML systems to new domains effectively. 
-This experience convinced me that production ML systems combined with physics intuition can solve real aerospace problems, from atmospheric modeling to the autonomous systems needed for space operations.
+Around 2022 I decided to go back to university and get my master's in physics.
+I wanted to keep working full-time for Ströer and lasted until my first round of exams before deciding to drop to 0.8 FTE.
+Again, I was very lucky to have such a supportive company behind me even though physics had little to do with advertising.
+This is where I was properly introduced to the world of atmospheric physics and able to leverage my years of large scale data processing experience to really run with my research.
+I fell into the niche of extreme weather analysis, digging deep into the subtleties of long tailed distributions.
+I got to speak at a conference and also work on my first published paper.
 
-## Academia
+Within weeks of finishing my degree I was approached by Pyper Vision, an aerospace startup focused on fog prediction for airports, and asked to help pivot their company from hardware to software.
+I agreed as long as I could keep Ströer as my primary employer.
+This began the journey of many long nights and weekends processing data, building prototypes, and reading research papers.
+Ultimately I was able to deliver a prototype and then a minimally marketable product in around eight months.
+During this time I met many amazing people through the [Ministry of Awesome](https://ministryofawesome.com/) startup incubator and even joined a local philosophy group where I have made lifelong friends (shoutout to the Round Table).
+I later returned to do another short contract focusing on proving an idea I had during the first contract but did not have time to dedicate to.
 
-From February 2015 to November 2017, I completed a Bachelor's of Science at the University of Canterbury, majoring in both Physics and Computer Science.
-The small amount of research I did in my undergraduate studies was in Solid State Physics, creating thin films of Yttrium Silicate via pulsed laser deposition as proposed candidates for quantum computing.
-While the technique was rough, we were able to show that it was possible to produce this particular form of quantum semiconductor (rare-Earth doped YSO) in situ.
+After three long years of processing I was finally accepted for a green card in late 2025 and made the move to Boston.
+After enjoying my first white Christmas (New Zealand is in summer for December) I spent some time exploring hobbies like game development and pickleball.
+Once the snow cleared I got a job working remotely for the social media intelligence company Sprout Social.
 
-From July 2022 to July 2024 (concurrently with Ströer Labs NZ), I completed a Master's of Science at the University of Canterbury, majoring in Physics. 
-This was with the Atmospheric Science department, under the guidance of Dave Frame and Suzanne Rosier.
-My particular research niche was extreme weather events over New Zealand, particularly precipitation, and how these differ in simulated worlds with and without anthropogenic climate change.
-I enjoyed the challenge of adapting my skills learnt from AdTech to thousands of years of simulated geospatial data.
-During this time I was given the opportunity to attend and speak at a national meteorology conference. 
+## Outside of work
 
-
-&nbsp;
+I am an avid consumer of all things sci-fi and nerd culture, with a particular penchant towards 1940s-1980s sci-fi.
+I have also dabbled in game development and modding over the years.

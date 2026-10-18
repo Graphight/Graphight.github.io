@@ -1,0 +1,5 @@
+.widget {
+  --widget-border: var(--line);
+  --widget-track: var(--line);
+  --widget-accent: var(--kw);
+}
