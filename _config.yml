@@ -11,6 +11,7 @@ repository: Graphight/Graphight.github.io
 
 exclude:
   - docs/
+  - resume/
   - Gemfile
   - Gemfile.lock
   - node_modules/

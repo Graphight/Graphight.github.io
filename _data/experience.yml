@@ -5,11 +5,14 @@
   place: Boston, MA
   line: I am part of the small team building the agentic evaluations platform while also helping maintain existing traditional ML pipelines
   points:
-    - "Root-caused unbounded GPU memory growth across a 12-service model-serving fleet to an undocumented ONNX Runtime defect that had shipped for three minor versions: established cold footprint byte-identical across image versions, isolated growth to distinct inference threads rather than concurrent request load, and falsified the concurrency-limiting hypothesis by semaphore tuning; findings drove the remediation and a seven-item SRE/ML action plan"
-    - "Built the batch evaluation pipeline at the core of the company's LLM evaluation framework: data model, input loading, parallel executor with deterministic result ordering, and an adaptive AIMD tokens-per-second throttle that backs off on provider rate limits and ramps back up; now the shared path other teams' evaluations run on"
-    - "Led CUDA 13 and Python 3.12 migration across 12 GPU inference services, moving both axes simultaneously to close torch/onnxruntime CVEs that were hard-capped by the previous base image, re-resolving the full dependency constraint set across 27 files"
-    - "Audited the evaluation framework's datasets against live agent behaviour after tool-schema drift, surfacing three production agent defects (result ordering, chart-type nondeterminism, and relative-date resolution), each reported to the owning squad with trace spans to reproduce"
-    - "Redesigned production ML service alerting: root-caused a flapping latency monitor to pod-roll noise rather than client impact, rewrote it as p95 with hysteresis gated on downstream queue backlog, and replaced 12 monitors generating ~90 pages/day with two notify-only ones"
+    - "Invited by two distinguished engineers to their internal advanced engineering group, contributing architecture, design docs, review, and implementation for agentic context management under parallel turns (eviction policy and rejecting tool requests that would exceed context budgets) and a product's agent runtime migration from a stock langchain4j AI Service to a custom runtime supporting parallelism and low-level looping"
+    - "Co-designed the company's shared LLM evaluation platform as one of three engineers, now adopted by 4 other teams; co-authored its design docs and demos, and built the batch evaluation pipeline at its core: parallel executor with deterministic result ordering and an adaptive AIMD tokens-per-second throttle that backs off on provider rate limits"
+    - "Co-designed and built a self-improving evals harness (guided tooling that uses Claude to iterate on and critique existing evals); led its UX redesign with custom Claude mod panels, the first use of Claude mods at the company, ahead of a company-wide adoption push"
+    - "Root-caused unbounded GPU memory growth across a 12-service, ~42-replica model-serving fleet to an undocumented ONNX Runtime defect shipped across three minor versions, found on only a second support rotation, isolating growth to inference threads and ruling out request concurrency; findings drove the remediation and a seven-item SRE/ML action plan"
+    - "Wrote onboarding and support docs explaining the fleet's existing GPU time-slicing setup (12 services, ~42 replicas, ~$500K/year savings), and fixed bugs in it"
+    - "Maintain production BERT models: uncovered and fixed several model bugs, and led the CUDA 13 and Python 3.12 migration across 12 GPU inference services to close torch/onnxruntime CVEs, re-resolving dependency constraints across 27 files"
+    - "Audited evaluation datasets against live agent behaviour after tool-schema drift, surfacing three production agent defects (result ordering, chart-type nondeterminism, relative-date resolution), each reported to the owning squad with trace spans"
+    - "Redesigned production ML alerting: traced a flapping latency monitor to pod-roll noise, rebuilt it as p95 with hysteresis gated on downstream queue backlog, and replaced 12 monitors generating ~90 pages/day with two notify-only ones"
 
 - note: Moved to Boston, MA
   start: Nov 2025
@@ -38,12 +41,8 @@
     - "Designed and deployed real-time bid optimization system selecting demand-side partners or dropping traffic entirely, operating under p99 sub-20ms latency at 100K+ requests/second"
     - "Cut cloud egress costs by 35% ($200K+ annually) for product vertical through ML optimisation; maintenance team expanded savings to $30K/month post-transition"
     - "Led 0-1 development of multiple ML products (classification, time-series forecasting, optimisation) from concept to production on PB-scale datasets, establishing technical architecture before transitioning to dedicated teams"
-    - "Built and owned ML experimentation platform through multiple iterations (custom webapp, Grafana dashboards, MLFlow), enabling stratified A/B performance analysis across 3B+ daily ad impressions and driving data-informed model iteration"
-    - "Built model monitoring dashboards with stratified performance views, SHAP-based feature importance reporting, and compliance documentation to support measurable, explainable, and auditable ML decisions"
-    - "Drove ML platform modernisation during the company's bare-metal-to-AWS migration, collaborating with DevOps and Data Engineering to redesign datalakes, account structures, and deployment practices"
-    - "Designed technical interview process for ML Engineering roles: created programming assessments, architecture evaluation framework, and systems design questions used across MLE/SWE/DevOps hiring"
-    - "Conducted 80+ technical interviews over 6 years, contributing to 15 hires as the NZ office grew from 20 to 30 engineers"
-    - "Hosted interns each summer and mentored juniors through intermediate"
+    - "Built and owned ML experimentation platform through multiple iterations (custom webapp, Grafana dashboards, MLFlow), enabling stratified A/B performance analysis across 3B+ daily ad impressions, with SHAP-based feature importance reporting for explainable, auditable ML decisions"
+    - "Designed the technical interview process for ML Engineering roles (programming assessments, architecture and systems design questions) used across MLE/SWE/DevOps hiring; conducted 80+ interviews over 6 years, contributing to 15 hires; hosted interns each summer and mentored juniors through intermediate"
 
 - org: Pyper Vision
   title: Founding Machine Learning Engineer (Contract 1, part-time)
@@ -68,7 +67,7 @@
   points:
     - "Thesis: Extreme precipitation events under climate change using 4000+ years of simulation data at multiple resolutions"
     - "Collaboration with NZ's National Institute of Water and Atmospheric Research (NIWA)"
-    - "Publication: Harrington, Rosier, Marsh, Frame (2024), \"Robust changes to the wettest and driest days of the year are hidden within annual rainfall projections: a New Zealand case study\", Environmental Research Letters, 19, 074057"
+    - "Co-author: Robust changes to the wettest and driest days of the year are hidden within annual rainfall projections, Environmental Research Letters (2024)"
     - "Presented research at the Meteorological Society of New Zealand Annual Conference (2023)"
 
 - org: University of Canterbury
