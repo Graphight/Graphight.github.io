@@ -3,7 +3,7 @@
 US Permanent Resident (Green Card holder) - no sponsorship required
 {: .tagline }
 
-Boston, MA | [LinkedIn](https://www.linkedin.com/in/tom-marsh-3aa764154/) | [GitHub](https://github.com/Graphight) | [Personal Website](https://graphight.github.io/) | tom.ian.marsh@gmail.com | (+1) 781-363-5484
+Boston, MA | [LinkedIn](https://www.linkedin.com/in/tom-marsh-3aa764154/) | [GitHub](https://github.com/Graphight) | [Personal Website](https://graphight.github.io/) | tom.ian.marsh@gmail.com
 {: .contact }
 
 ## SUMMARY
