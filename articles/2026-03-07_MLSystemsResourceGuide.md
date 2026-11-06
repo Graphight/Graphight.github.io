@@ -97,8 +97,7 @@ Pick up Docker early. I cannot stress this enough. Getting comfortable with cont
 
 ## 5. Cheesy Advice That Needs Saying
 
-- Say yes to opportunities, especially uncomfortable ones.
-- Focus on improving yourself above everything else.
+- Focus on improving yourself above everything else, I am constantly looking back at my past efforts and assessing, if it starts to plateau then I am getting too comfortable and need to learn more.
 - Try to work well with others. Everyone can teach you something, even if it is just what not to do.
 - Talk to people outside your discipline. Some of the best things I learned came from conversations with data engineers and software engineers, not from courses.
 - Build things and run into brick walls. Then you have specific things to search for out of frustration. That feedback loop is worth more than any structured curriculum.
