@@ -6,6 +6,8 @@ author: Tom Marsh
 published: true
 ---
 
+# Preamble
+
 At this point I do not think it is controversial to say that 2026 is the year of the agent.
 As a former AI skeptic, I will admit that my opinion was humbled with the release of Opus 4.5. 
 That was the inflection point for me to start chugging the Kool-Aid.
