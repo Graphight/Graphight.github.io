@@ -3,23 +3,25 @@ layout: article
 title: "Mission Control [Claude Mod]"
 date: 2026-11-05
 author: Tom Marsh
-published: false
+published: true
 ---
 
-[//]: # (Intro)
 At this point I do not think it is controversial to say that 2026 is the year of the agent.
-As a former AI skeptic, I will admit that my opinion was humbled with the release of Opus 4.5, and it has only accelerated since.
+As a former AI skeptic, I will admit that my opinion was humbled with the release of Opus 4.5. 
+That was the inflection point for me to start chugging the Kool-Aid.
 These days, the models (and harnesses) are actually pretty darn good now and I genuinely cannot imagine developing without having one nearby.
 
-This is all to say, I certainly **_feel_** more productive in my work and personal projects, or more likely, things are going faster and more plates are spinning.
-This has brought with it the problem of corralling many agents at a time.
+I certainly **_feel_** more productive in my work and personal projects. 
+There is the gremlin in the back of my mind that whispers I am really just spinning my wheels faster and traction is scant.
+But boy, look how many plates I can spin at once now.
+My main problem now is corralling my horde of minions.
 **_My vast intellect_** settled on the strategy of:
 > _focus on one terminal tab at a time and then immediately jump to the next once it was off ticking away, rinse and repeat_ (clearly revolutionary, highly scalable, and sustainable).
 
 This culminated in a dance of rapidly flicking through tabs looking for sessions that required my attention, burning valuable grey-matter IO on digesting the context in front of me and quickly trying to assess if I was actually needed.
 I know Claude Code tried to remedy this with `claude agents` but quite frankly it does not cut the mustard for me.
 Then October 1st rolled around and Anthropic released [Claude Mods](https://code.claude.com/docs/en/plugins/mods/overview) to the public.
-I have had quite a bit of fun improving my agentic experience through the fracking of this feature. 
+I have had quite a bit of fun exploring this feature and hyper optimising my setup. 
 Enough so, that colleagues have started to show interest in adopting some of my practices.
 
 This article serves as a vehicle for delivering said practices to a wider audience and is hopefully the first in a series of sharing my setup as it evolves (full-disclosure, it also helps motivate me to write in a semi-public space so two birds with one stone sounds great to me!).
@@ -52,7 +54,7 @@ The brief descriptions of each section are as follows:
 The code for all of these lives in a repo [https://github.com/Graphight/fixings](https://github.com/Graphight/fixings/).
 
 I am from a colony country so **_fixings_** to me means "all the nails, screws, bolts, and brackets holding things together", however, my American friends use the term **_fixin's_** as "all the side dishes and trimmings that make the meal".
-This is one of those rare cases where both versions of the idiom track for the same thing so it was too good not to use it for my project as a catch-all "improve upon the product" (also there were no other popular agentic projects on GitHub with this title when I checked).
+This is one of those rare cases where both versions of the phrase track for the same thing so it was too good not to use it for my project as a catch-all "improve upon the product" (also there were no other popular agentic projects on GitHub with this title when I checked).
 
 The Anthropic plugin marketplace offers a reasonably smooth experience.
 To get access to these mods you can simply jump in a Claude Code session and type:
