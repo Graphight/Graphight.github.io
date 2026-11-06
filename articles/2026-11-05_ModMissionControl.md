@@ -17,7 +17,7 @@ I certainly **_feel_** more productive in my work and personal projects.
 There is the gremlin in the back of my mind that whispers I am really just spinning my wheels faster and traction is scant.
 But boy, look how many plates I can spin at once now.
 My main problem now is corralling my horde of minions.
-**_My vast intellect_** settled on the strategy of:
+**_My vast intellect_**[^wheatley] settled on the strategy of:
 > _focus on one terminal tab at a time and then immediately jump to the next once it was off ticking away, rinse and repeat_.[^revolutionary]
 
 This culminated in a dance of rapidly flicking through tabs looking for sessions that required my attention, burning valuable grey-matter IO on digesting the context in front of me and quickly trying to assess if I was actually needed.
@@ -79,6 +79,7 @@ I did add limited support for running mission-control inside Claude Desktop but 
 While I like having access to a better renderer for the mods, I am not as comfortable using the multi-tab environment in the desktop app or just the Code environment there in general (I prefer Ghostty). 
 If the experience of Claude Desktop drastically improves in the future then I will be a bit more gung-ho.
 
+[^wheatley]: [Wheatley, Portal 2](https://theportalwiki.com/wiki/Wheatley_voice_lines).
 [^revolutionary]: Clearly revolutionary, highly scalable, and sustainable.
 [^motivation]: Full-disclosure, it also helps motivate me to write in a semi-public space so two birds with one stone sounds great to me!
 [^side-panels]: These will come up a lot across my mods.
