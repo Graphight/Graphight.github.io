@@ -8,7 +8,10 @@ Boston, MA | [LinkedIn](https://www.linkedin.com/in/tom-marsh-3aa764154/) | [Git
 
 ## SUMMARY
 
-Senior Machine Learning Engineer with 8 years building production ML systems at TB/PB scale. At Sprout Social, co-designed the shared LLM evaluation platform adopted by 4 teams, contributed to agent runtime architecture at the invitation of two distinguished engineers, and support a 12-service GPU inference fleet. Track record delivering measurable business impact: foundational ML infrastructure generating €15M+ annually, platform migrations saving $200K+ yearly, and 0-1 startup ML system contributing to $10M+ valuation. Physics background (MSc) with end-to-end ownership from architecture to deployment.
+Senior Machine Learning Engineer with over 8 years building production ML systems at TB/PB scale. 
+At Sprout Social, co-designed the shared LLM evaluation platform adopted by 4 teams, contributed to agent runtime architecture at the invitation of principal engineers, and support a multi-service GPU inference fleet. 
+Track record delivering measurable business impact: foundational ML infrastructure generating €15M+ annually, platform migrations saving $200K+ yearly, and 0-1 startup ML system contributing to $10M+ valuation. 
+Physics background (MSc) with end-to-end ownership from architecture to deployment.
 
 ## EXPERIENCE
 
@@ -17,14 +20,13 @@ Senior Machine Learning Engineer with 8 years building production ML systems at 
 Boston, MA | Apr 2026 - Present
 {: .meta }
 
-- Invited by two distinguished engineers to their internal advanced engineering group, contributing architecture, design docs, review, and implementation for agentic context management under parallel turns (eviction policy and rejecting tool requests that would exceed context budgets) and a product's agent runtime migration from a stock langchain4j AI Service to a custom runtime supporting parallelism and low-level looping
+- Invited by principal engineers to assist their internal advanced engineering group, contributing architecture, design docs, review, and implementation for agentic context management under parallel turns (eviction policy and rejecting tool requests that would exceed context budgets) and a product's agent runtime migration from a stock langchain4j AI Service to a custom runtime supporting parallelism and low-level looping
 - Co-designed the company's shared LLM evaluation platform as one of three engineers, now adopted by 4 other teams; co-authored its design docs and demos, and built the batch evaluation pipeline at its core: parallel executor with deterministic result ordering and an adaptive AIMD tokens-per-second throttle that backs off on provider rate limits
 - Co-designed and built a self-improving evals harness (guided tooling that uses Claude to iterate on and critique existing evals); led its UX redesign with custom Claude mod panels, the first use of Claude mods at the company, ahead of a company-wide adoption push
-- Root-caused unbounded GPU memory growth across a 12-service, ~42-replica model-serving fleet to an undocumented ONNX Runtime defect shipped across three minor versions, found on only a second support rotation, isolating growth to inference threads and ruling out request concurrency; findings drove the remediation and a seven-item SRE/ML action plan
-- Wrote onboarding and support docs explaining the fleet's existing GPU time-slicing setup (12 services, ~42 replicas, ~$500K/year savings), and fixed bugs in it
-- Maintain production BERT models: uncovered and fixed several model bugs, and led the CUDA 13 and Python 3.12 migration across 12 GPU inference services to close torch/onnxruntime CVEs, re-resolving dependency constraints across 27 files
+- Root-caused unbounded GPU memory growth across tens of services and replicas model-serving fleet to an undocumented ONNX Runtime defect shipped across three minor versions, found on only a second support rotation, isolating growth to inference threads and ruling out request concurrency; findings drove the remediation and SRE/ML action plan
+- Maintain production BERT models: uncovered and fixed several model bugs, and led the CUDA 13 and Python 3.12 migration across GPU inference services to close torch/onnxruntime CVEs
 - Audited evaluation datasets against live agent behaviour after tool-schema drift, surfacing three production agent defects (result ordering, chart-type nondeterminism, relative-date resolution), each reported to the owning squad with trace spans
-- Redesigned production ML alerting: traced a flapping latency monitor to pod-roll noise, rebuilt it as p95 with hysteresis gated on downstream queue backlog, and replaced 12 monitors generating ~90 pages/day with two notify-only ones
+- Redesigned production ML alerting: traced a flapping latency monitor to pod-roll noise, rebuilt it as p95 with hysteresis gated on downstream queue backlog, and replaced monitors generating dozens of pages/day with two notify-only ones
 
 ### Ströer Labs NZ - Senior Machine Learning Engineer
 
