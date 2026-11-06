@@ -92,6 +92,22 @@ th { background: var(--surf); color: var(--hi); }
 .band-meta { margin: 0 0 12px; font: 14px/1.5 $mono; color: var(--mute); }
 .band + .column > p:first-child { font-size: 22px; }
 
+sup[role="doc-noteref"] { line-height: 0; }
+.footnotes { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--line); font-size: 16px; color: var(--mute); }
+.footnotes p { margin: 0.4em 0; }
+.reversefootnote { margin-left: 4px; }
+.sidenote { display: none; }
+// Wide enough for notes: the prose narrows to 720px and the notes take the right of the 1024px column.
+@media (min-width: 1200px) {
+  .column:has(> .footnotes) {
+    position: relative;
+    padding-right: 280px;
+    .sidenote { display: block; position: absolute; right: 24px; width: 224px; font-size: 15px; line-height: 1.5; color: var(--mute); }
+    .sidenote p { margin: 0; }
+  }
+}
+.sidenote-label { margin-right: 6px; font: 12px $mono; color: var(--kw); }
+
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
 $hero-band: 220px;
 .hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: $hero-band; }
